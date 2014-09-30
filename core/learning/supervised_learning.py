@@ -1,0 +1,55 @@
+from abc import ABCMeta, abstractmethod
+
+from core.learning.iterative_learning import IterativeLearning
+
+
+__author__ = 'Douglas'
+
+
+class SupervisedLearning(IterativeLearning):
+    __metaclass__ = ABCMeta
+
+    def __init__(self, neural_network, error_function, learning_rate=0.1, max_error=0.01, max_iterations=None):
+        """
+        :type neural_network: NeuralNetwork
+        :type error_function: ErrorFunction
+        :type max_error: float
+        :type max_iterations: int
+        """
+
+        IterativeLearning.__init__(self, neural_network, learning_rate, max_iterations)
+
+        self.error_function = error_function
+        """:type : ErrorFunction"""
+
+        self.max_error = max_error
+        """:type : float"""
+
+        self.total_network_error = 0.0
+        """:type : float"""
+
+    def _iteration(self, training_set):
+        """
+        :type training_set: TrainingSet
+        """
+
+        self.error_function.reset()
+
+        for training_row in training_set:
+            computed_output = self.neural_network.compute(training_row.pattern)
+            output_error = [(ideal - actual) ** 2 for ideal, actual in zip(training_row.ideal_output, computed_output)]
+            self.error_function.add_error(output_error)
+            self._update_network_weights(output_error)
+
+        self.total_network_error = self.error_function.total_error
+
+    def has_reached_stop_condition(self):
+        print(self.total_network_error)
+        return IterativeLearning.has_reached_stop_condition(self) and self.total_network_error < self.max_error
+
+    @abstractmethod
+    def _update_network_weights(self, output_error):
+        """
+        :type output_error: list[float]
+        """
+        pass

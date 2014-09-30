@@ -1,0 +1,55 @@
+from core.connection import Connection
+
+__author__ = 'Douglas'
+
+
+class Neuron:
+    def __init__(self, input_function, activation_function):
+        """
+        :type input_function: InputFunction
+        :type activation_function: ActivationFunction
+        """
+
+        self.input_function = input_function
+        """:type : InputFunction"""
+
+        self.activation_function = activation_function
+        """:type : ActivationFunction"""
+
+        self.output = 0.0
+        """:type : float"""
+
+        self.input = 0.0
+        """:type : float"""
+
+        self.input_connections = {}
+        """:type : dict[Neuron, Connection]"""
+
+    def compute_output(self):
+        if len(self.input_connections) > 0:
+            self.input = self.input_function.calculate_output(self.input_connections.values())
+
+        self.output = self.activation_function.calculate_output(self.input)
+
+        return self.output
+
+    def randomize_weights(self):
+        for input_connection in self.input_connections.values():
+            input_connection.randomize_weight()
+
+    def connect_to(self, another_neuron):
+        """
+        :type another_neuron: Neuron
+        """
+        connection = Connection(another_neuron, self)
+
+        self.input_connections[another_neuron] = connection
+
+    def disconnect_to(self, another_neuron):
+        """
+        :type another_neuron: Neuron
+        """
+        del self.input_connections[another_neuron]
+
+    def remove_all_connections(self):
+        self.input_connections.clear()
