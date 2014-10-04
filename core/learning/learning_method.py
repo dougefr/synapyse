@@ -1,6 +1,6 @@
 from abc import abstractmethod, ABCMeta
 
-__author__ = 'Douglas'
+__author__ = 'Douglas Eric Fonseca Rodrigues'
 
 
 class LearningMethod:
@@ -8,11 +8,9 @@ class LearningMethod:
 
     def __init__(self, neural_network):
         """
-        :type neural_network: NeuralNetwork
+        :type neural_network: core.neural_network.NeuralNetwork
         """
-
         self.neural_network = neural_network
-        """:type : NeuralNetwork"""
 
     @abstractmethod
     def has_reached_stop_condition(self):
@@ -21,6 +19,6 @@ class LearningMethod:
     @abstractmethod
     def learn(self, training_set):
         """
-        :type training_set: TrainingSet
+        :type training_set: core.learning.training_set.TrainingSet
         """
         pass

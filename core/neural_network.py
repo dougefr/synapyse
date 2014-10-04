@@ -1,29 +1,25 @@
 from core.layer import Layer
 
-__author__ = 'Douglas'
+__author__ = 'Douglas Eric Fonseca Rodrigues'
 
 
 class NeuralNetwork:
-    def __init__(self, learning_method):
+    def __init__(self):
         self.layers = []
-        """:type : list[Layer]"""
-
-        self.learning_method = learning_method
-        """:type : LearningMethod"""
+        """:type : list[core.layer.Layer]"""
 
     def add_layer(self, neuron_count, input_function, activation_function):
         """
         :type neuron_count: int
-        :type input_function: InputFunction
-        :type activation_function:
+        :type input_function: core.input_functions.input_function.InputFunction
+        :type activation_function: core.activation_functions.activation_function.ActivationFunction
         """
         self._add_layer(Layer(neuron_count, input_function, activation_function))
 
     def _add_layer(self, new_layer):
         """
-        :type new_layer: Layer
+        :type new_layer: core.layer.Layer
         """
-
         if len(self.layers) > 0:
             new_layer.previous = self.layers[-1]
 
@@ -60,9 +56,3 @@ class NeuralNetwork:
     def randomize_weights(self):
         for layer in self.layers:
             layer.randomize_neurons_weights()
-
-    def learn(self, training_set):
-        """
-        :type training_set: TrainingSet
-        """
-        self.learning_method.learn(training_set)

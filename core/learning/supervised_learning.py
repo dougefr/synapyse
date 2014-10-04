@@ -1,36 +1,31 @@
 from abc import ABCMeta, abstractmethod
 
 from core.learning.iterative_learning import IterativeLearning
+from impl.learning.error_functions.rms import RMS
 
 
-__author__ = 'Douglas'
+__author__ = 'Douglas Eric Fonseca Rodrigues'
 
 
 class SupervisedLearning(IterativeLearning):
     __metaclass__ = ABCMeta
 
-    def __init__(self, neural_network, error_function, learning_rate=0.1, max_error=0.01, max_iterations=None):
+    def __init__(self, neural_network, error_function=RMS(), learning_rate=0.1, max_error=0.01, max_iterations=None):
         """
-        :type neural_network: NeuralNetwork
-        :type error_function: ErrorFunction
+        :type neural_network: core.neural_network.NeuralNetwork
+        :type error_function: core.learning.error_functions.error_function.ErrorFunction
+        :type learning_rate: float
         :type max_error: float
         :type max_iterations: int
         """
-
         IterativeLearning.__init__(self, neural_network, learning_rate, max_iterations)
-
         self.error_function = error_function
-        """:type : ErrorFunction"""
-
         self.max_error = max_error
-        """:type : float"""
-
         self.total_network_error = None
-        """:type : float"""
 
     def _iteration(self, training_set):
         """
-        :type training_set: TrainingSet
+        :type training_set: core.learning.training_set.TrainingSet
         """
 
         self.error_function.reset()

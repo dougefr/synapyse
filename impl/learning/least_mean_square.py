@@ -1,10 +1,18 @@
 from core.learning.supervised_learning import SupervisedLearning
+from impl.learning.error_functions.rms import RMS
 
-__author__ = 'douglas'
+__author__ = 'Douglas Eric Fonseca Rodrigues'
 
 
 class LeastMeanSquare(SupervisedLearning):
-    def __init__(self, neural_network, error_function, learning_rate=0.1, max_error=0.01, max_iterations=None):
+    def __init__(self, neural_network, error_function=RMS(), learning_rate=0.1, max_error=0.01, max_iterations=None):
+        """
+        :type neural_network: core.neural_network.NeuralNetwork
+        :type error_function: core.learning.error_functions.error_function.ErrorFunction
+        :type learning_rate: float
+        :type max_error: float
+        :type max_iterations: int
+        """
         SupervisedLearning.__init__(self, neural_network, error_function, learning_rate, max_error, max_iterations)
 
     def _update_network_weights(self, output_error):
@@ -13,7 +21,7 @@ class LeastMeanSquare(SupervisedLearning):
 
     def _update_neuron_weights(self, neuron, error):
         """
-        :type neuron: Neuron
+        :type neuron: core.neuron.Neuron
         :type error: float
         """
         for connection in neuron.input_connections.values():

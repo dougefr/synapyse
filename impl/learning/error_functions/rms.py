@@ -1,15 +1,12 @@
 from core.learning.error_functions.error_function import ErrorFunction
 
-__author__ = 'Douglas'
+__author__ = 'Douglas Eric Fonseca Rodrigues'
 
 
 class RMS(ErrorFunction):
     def __init__(self):
         self.global_error = 0.0
-        """:type : float"""
-
         self.size = 0
-        """:type : int"""
 
     @property
     def total_error(self):

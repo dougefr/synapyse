@@ -1,11 +1,9 @@
-import json
-
-import jsonpickle
-
 from core.learning.training_set import TrainingSet
 from impl.activation_functions.tanh import Tanh
 from impl.input_functions.weighted_sum import WeightedSum
+from impl.learning.back_propagation import BackPropagation
 from impl.multi_layer_perceptron import MultiLayerPerceptron
+from util import json_util
 
 
 training_set = TrainingSet()
@@ -23,11 +21,11 @@ n.add_layer(1, WeightedSum(), Tanh())
 
 n.randomize_weights()
 
-# print(json.dumps(json.loads(jsonpickle.encode(n)), indent=4, sort_keys=True))
+b = BackPropagation(n)
 
-n.learn(training_set)
+b.learn(training_set)
 
-print(json.dumps(json.loads(jsonpickle.encode(n)), indent=4, sort_keys=True))
+json_util.print_json(n)
 
 print(n.compute([0, 0]))
 print(n.compute([0, 1]))

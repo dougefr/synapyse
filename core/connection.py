@@ -1,24 +1,18 @@
-from util import random
+from util import random_util
 
-__author__ = 'Douglas'
+__author__ = 'Douglas Eric Fonseca Rodrigues'
 
 
 class Connection:
     def __init__(self, origin, destination, weight=0.0):
         """
-        :type origin: Neuron
-        :type destination: Neuron
+        :type origin: core.neuron.Neuron
+        :type destination: core.neuron.Neuron
         :type weight: float
         """
-
         self.origin = origin
-        """:type : Neuron"""
-
         self.destination = destination
-        """:type : Neuron"""
-
         self.weight = weight
-        """:type : float"""
 
     def randomize_weight(self):
-        self.weight = random.generate()
+        self.weight = random_util.generate()

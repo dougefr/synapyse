@@ -1,33 +1,25 @@
 from core.connection import Connection
 
-__author__ = 'Douglas'
+__author__ = 'Douglas Eric Fonseca Rodrigues'
 
 
 class Neuron:
     def __init__(self, input_function, activation_function):
         """
-        :type input_function: InputFunction
-        :type activation_function: ActivationFunction
+        :type input_function: core.input_functions.input_function.InputFunction
+        :type activation_function: core.activation_functions.activation_function.ActivationFunction
         """
-
         self.input_function = input_function
-        """:type : InputFunction"""
-
         self.activation_function = activation_function
-        """:type : ActivationFunction"""
-
         self.output = 0.0
-        """:type : float"""
-
         self.input = 0.0
-        """:type : float"""
 
         self.input_connections = {}
-        """:type : dict[Neuron, Connection]"""
+        """:type : dict[core.neuron.Neuron, core.connection.Connection]"""
 
     def compute_output(self):
         if len(self.input_connections) > 0:
-            self.input = self.input_function.calculate_output(self.input_connections.values())
+            self.input = self.input_function.calculate_output(list(self.input_connections.values()))
 
         self.output = self.activation_function.calculate_output(self.input)
 
@@ -39,7 +31,7 @@ class Neuron:
 
     def connect_to(self, another_neuron):
         """
-        :type another_neuron: Neuron
+        :type another_neuron: core.neuron.Neuron
         """
         connection = Connection(another_neuron, self)
 
@@ -47,7 +39,7 @@ class Neuron:
 
     def disconnect_to(self, another_neuron):
         """
-        :type another_neuron: Neuron
+        :type another_neuron: core.neuron.Neuron
         """
         del self.input_connections[another_neuron]
 
