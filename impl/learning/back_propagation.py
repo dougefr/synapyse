@@ -1,15 +1,11 @@
-from core.learning.supervised_learning import SupervisedLearning
+from impl.learning.least_mean_square import LeastMeanSquare
 
 __author__ = 'Douglas'
 
 
-class BackPropagation(SupervisedLearning):
-    def __init__(self, neural_network, error_function, learning_rate=0.1, momentum=0.0, max_error=0.01, max_iterations=None):
-
-        SupervisedLearning.__init__(self, neural_network, error_function, learning_rate, max_error, max_iterations)
-
-        self.momentum = momentum
-        """:type : float"""
+class BackPropagation(LeastMeanSquare):
+    def __init__(self, neural_network, error_function, learning_rate=0.1, max_error=0.01, max_iterations=None):
+        LeastMeanSquare.__init__(self, neural_network, error_function, learning_rate, max_error, max_iterations)
 
     def _update_network_weights(self, output_error, i=0):
         """
@@ -28,7 +24,7 @@ class BackPropagation(SupervisedLearning):
 
             for neuron, error in zip(self.neural_network.output_neurons, output_error):
                 delta = error * neuron.activation_function.calculate_derivative(neuron.input)
-                self.__update_neuron_weights(neuron, delta)
+                LeastMeanSquare._update_neuron_weights(self, neuron, delta)
 
             return zip(layer.neurons, output_error)
         else:
@@ -37,22 +33,15 @@ class BackPropagation(SupervisedLearning):
             neurons_errors = []
 
             for neuron in layer.neurons:
-                delta_sum = 0
+                delta_sum = 0.0
 
-                for next_neuron, next_output_error in next_layer:
-                    delta_sum += next_neuron.input_connections[neuron].weight * next_output_error
+                for next_neuron, next_neuron_error in next_layer:
+                    delta_sum += next_neuron.input_connections[neuron].weight * next_neuron_error
 
                 neuron_error = delta_sum * neuron.activation_function.calculate_derivative(neuron.input)
                 neurons_errors.append(neuron_error)
 
-                self.__update_neuron_weights(neuron, neuron_error)
+                LeastMeanSquare._update_neuron_weights(self, neuron, neuron_error)
 
             return zip(layer.neurons, neurons_errors)
 
-    def __update_neuron_weights(self, neuron, error):
-        """
-        :type neuron: Neuron
-        :type error: float
-        """
-        for connection in neuron.input_connections.values():
-            connection.weight += (connection.destination.output * error * self.learning_rate + (self.momentum * connection.weight))

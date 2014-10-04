@@ -4,9 +4,12 @@ __author__ = 'Douglas'
 
 
 class NeuralNetwork:
-    def __init__(self):
+    def __init__(self, learning_method):
         self.layers = []
         """:type : list[Layer]"""
+
+        self.learning_method = learning_method
+        """:type : LearningMethod"""
 
     def add_layer(self, neuron_count, input_function, activation_function):
         """
@@ -57,3 +60,9 @@ class NeuralNetwork:
     def randomize_weights(self):
         for layer in self.layers:
             layer.randomize_neurons_weights()
+
+    def learn(self, training_set):
+        """
+        :type training_set: TrainingSet
+        """
+        self.learning_method.learn(training_set)

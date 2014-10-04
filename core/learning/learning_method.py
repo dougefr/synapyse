@@ -17,3 +17,10 @@ class LearningMethod:
     @abstractmethod
     def has_reached_stop_condition(self):
         pass
+
+    @abstractmethod
+    def learn(self, training_set):
+        """
+        :type training_set: TrainingSet
+        """
+        pass

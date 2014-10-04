@@ -5,7 +5,6 @@ import jsonpickle
 from core.learning.error_functions.error_function import ErrorFunction
 from core.learning.supervised_learning import SupervisedLearning
 from core.learning.training_set import TrainingSet
-
 from core.neural_network import NeuralNetwork
 from impl.activation_functions.linear import Linear
 from impl.input_functions.weighted_sum import WeightedSum

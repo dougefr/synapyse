@@ -13,13 +13,13 @@ class RMS(ErrorFunction):
 
     @property
     def total_error(self):
-        return (self.global_error / self.size) ** 0.5
+        return self.global_error / self.size
 
     def add_error(self, output_error):
         """
         :type output_error: list[float]
         """
-        self.global_error += sum(output_error)
+        self.global_error += sum([(error * error) * 0.5 for error in output_error])
         self.size += len(output_error)
 
     def reset(self):

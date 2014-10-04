@@ -1,2 +1,3 @@
 .idea
-*.pyc
+core/*.pyc
+core/activation_functions/*.pyc

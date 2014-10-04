@@ -4,17 +4,17 @@ __author__ = 'Douglas'
 
 
 class Connection:
-    def __init__(self, origin, destiny, weight=0.0):
+    def __init__(self, origin, destination, weight=0.0):
         """
         :type origin: Neuron
-        :type destiny: Neuron
+        :type destination: Neuron
         :type weight: float
         """
 
         self.origin = origin
         """:type : Neuron"""
 
-        self.destination = destiny
+        self.destination = destination
         """:type : Neuron"""
 
         self.weight = weight

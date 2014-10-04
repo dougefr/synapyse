@@ -25,7 +25,7 @@ class SupervisedLearning(IterativeLearning):
         self.max_error = max_error
         """:type : float"""
 
-        self.total_network_error = 0.0
+        self.total_network_error = None
         """:type : float"""
 
     def _iteration(self, training_set):
@@ -37,15 +37,15 @@ class SupervisedLearning(IterativeLearning):
 
         for training_row in training_set:
             computed_output = self.neural_network.compute(training_row.pattern)
-            output_error = [(ideal - actual) ** 2 for ideal, actual in zip(training_row.ideal_output, computed_output)]
+            output_error = [ideal - actual for ideal, actual in zip(training_row.ideal_output, computed_output)]
             self.error_function.add_error(output_error)
             self._update_network_weights(output_error)
 
         self.total_network_error = self.error_function.total_error
 
     def has_reached_stop_condition(self):
-        print(self.total_network_error)
-        return IterativeLearning.has_reached_stop_condition(self) and self.total_network_error < self.max_error
+        return IterativeLearning.has_reached_stop_condition(self) or (
+            self.total_network_error is not None and self.total_network_error < self.max_error)
 
     @abstractmethod
     def _update_network_weights(self, output_error):
