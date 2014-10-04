@@ -61,7 +61,7 @@ n30.input_connections[n20].weight = 0.4
 n30.input_connections[n21].weight = 0.3
 n30.input_connections[b2].weight = 0.0
 
-#print(json.dumps(json.loads(jsonpickle.encode(n)), indent=4, sort_keys=True))
+# print(json.dumps(json.loads(jsonpickle.encode(n)), indent=4, sort_keys=True))
 
 n.learn(training_set)
 
