@@ -8,15 +8,15 @@ class NeuralNetwork:
         self.layers = []
         """:type : list[core.layer.Layer]"""
 
-    def add_layer(self, neuron_count, input_function, activation_function):
+    def create_layer(self, neuron_count, input_function, activation_function):
         """
         :type neuron_count: int
         :type input_function: core.input_functions.input_function.InputFunction
         :type activation_function: core.activation_functions.activation_function.ActivationFunction
         """
-        self._add_layer(Layer(neuron_count, input_function, activation_function))
+        self.add_layer(Layer(neuron_count, input_function, activation_function))
 
-    def _add_layer(self, new_layer):
+    def add_layer(self, new_layer):
         """
         :type new_layer: core.layer.Layer
         """
@@ -44,7 +44,7 @@ class NeuralNetwork:
         :type pattern: list[float]
         """
 
-        # sets the input layer with the pattern
+        # sets the input layer with the input_pattern
         for neuron, p in zip(self.layers[0].neurons, pattern):
             neuron.input = p
 

@@ -11,6 +11,8 @@ from impl.learning.error_functions.rms import RMS
 from impl.multi_layer_perceptron import MultiLayerPerceptron
 
 
+__author__ = 'Douglas Eric Fonseca Rodrigues'
+
 training_set = TrainingSet()
 
 training_set.append([0.0, 1.0], [1.0])
@@ -20,10 +22,10 @@ n = MultiLayerPerceptron()
 input_function = WeightedSum()
 activation_function = Tanh()
 
-n.add_layer(2, input_function, Linear())
-n.add_layer(2, input_function, activation_function)
-n.add_layer(2, input_function, activation_function)
-n.add_layer(1, input_function, activation_function)
+n.create_layer(2, input_function, Linear())
+n.create_layer(2, input_function, activation_function)
+n.create_layer(2, input_function, activation_function)
+n.create_layer(1, input_function, activation_function)
 
 n00 = n.layers[0].neurons[0]
 n01 = n.layers[0].neurons[1]

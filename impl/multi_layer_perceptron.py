@@ -10,7 +10,7 @@ class MultiLayerPerceptron(NeuralNetwork):
     def __init__(self):
         NeuralNetwork.__init__(self)
 
-    def add_layer(self, neuron_count, input_function, activation_function=Linear()):
+    def create_layer(self, neuron_count, input_function, activation_function=Linear()):
         """
         :type neuron_count: int
         :type input_function: core.input_functions.input_function.InputFunction
@@ -21,4 +21,4 @@ class MultiLayerPerceptron(NeuralNetwork):
         if len(self.layers) > 0:
             self.layers[-1].neurons.append(BiasNeuron(activation_function))
 
-        NeuralNetwork._add_layer(self, new_layer)
+        NeuralNetwork.add_layer(self, new_layer)

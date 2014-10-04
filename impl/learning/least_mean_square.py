@@ -15,11 +15,11 @@ class LeastMeanSquare(SupervisedLearning):
         """
         SupervisedLearning.__init__(self, neural_network, error_function, learning_rate, max_error, max_iterations)
 
-    def _update_network_weights(self, output_error):
+    def update_network_weights(self, output_error):
         for neuron, error in zip(self.neural_network.output_neurons, output_error):
-            self._update_neuron_weights(neuron, error)
+            self.update_neuron_weights(neuron, error)
 
-    def _update_neuron_weights(self, neuron, error):
+    def update_neuron_weights(self, neuron, error):
         """
         :type neuron: core.neuron.Neuron
         :type error: float

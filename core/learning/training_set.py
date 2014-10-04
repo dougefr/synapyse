@@ -29,5 +29,5 @@ class TrainingSetRow:
         :type input_pattern: list[double]
         :type ideal_output: list[double]
         """
-        self.pattern = input_pattern
+        self.input_pattern = input_pattern
         self.ideal_output = ideal_output

@@ -28,13 +28,13 @@ class IterativeLearning(LearningMethod):
         """
         while not self.has_reached_stop_condition():
             self.actual_iteration += 1
-            self._iteration(training_set)
+            self.iteration(training_set)
 
     def has_reached_stop_condition(self):
         return self.max_iterations == self.actual_iteration
 
     @abstractmethod
-    def _iteration(self, training_set):
+    def iteration(self, training_set):
         """
         :type training_set: core.learning.training_set.TrainingSet
         """

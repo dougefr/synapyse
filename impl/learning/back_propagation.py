@@ -15,7 +15,7 @@ class BackPropagation(LeastMeanSquare):
         """
         LeastMeanSquare.__init__(self, neural_network, error_function, learning_rate, max_error, max_iterations)
 
-    def _update_network_weights(self, output_error, i=1):
+    def update_network_weights(self, output_error, i=1):
         """
         :type output_error: list[float]
         :type i: int
@@ -28,11 +28,11 @@ class BackPropagation(LeastMeanSquare):
 
             for neuron, error in zip(self.neural_network.output_neurons, output_error):
                 delta = error * neuron.activation_function.calculate_derivative(neuron.input)
-                LeastMeanSquare._update_neuron_weights(self, neuron, delta)
+                LeastMeanSquare.update_neuron_weights(self, neuron, delta)
 
             return zip(layer.neurons, output_error)
         else:
-            next_layer = self._update_network_weights(output_error, i + 1)
+            next_layer = self.update_network_weights(output_error, i + 1)
 
             neurons_errors = []
 
@@ -46,7 +46,7 @@ class BackPropagation(LeastMeanSquare):
                 neuron_error = delta_sum * neuron.activation_function.calculate_derivative(neuron.input)
                 neurons_errors.append(neuron_error)
 
-                LeastMeanSquare._update_neuron_weights(self, neuron, neuron_error)
+                LeastMeanSquare.update_neuron_weights(self, neuron, neuron_error)
 
             return zip(layer.neurons, neurons_errors)
 

@@ -16,9 +16,9 @@ neural_network = NeuralNetwork()
 input_function = WeightedSum()
 activation_function = Linear()
 
-neural_network.add_layer(2, input_function, activation_function)
-neural_network.add_layer(3, input_function, activation_function)
-neural_network.add_layer(1, input_function, activation_function)
+neural_network.create_layer(2, input_function, activation_function)
+neural_network.create_layer(3, input_function, activation_function)
+neural_network.create_layer(1, input_function, activation_function)
 
 neural_network.randomize_weights()
 

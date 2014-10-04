@@ -6,6 +6,8 @@ from impl.multi_layer_perceptron import MultiLayerPerceptron
 from util import json_util
 
 
+__author__ = 'Douglas Eric Fonseca Rodrigues'
+
 training_set = TrainingSet()
 
 training_set.append([0.0, 0.0], [0.0])
@@ -15,13 +17,13 @@ training_set.append([1.0, 1.0], [0.0])
 
 n = MultiLayerPerceptron()
 
-n.add_layer(2, WeightedSum())
-n.add_layer(3, WeightedSum(), Tanh())
-n.add_layer(1, WeightedSum(), Tanh())
+n.create_layer(2, WeightedSum())
+n.create_layer(3, WeightedSum(), Tanh())
+n.create_layer(1, WeightedSum(), Tanh())
 
 n.randomize_weights()
 
-b = BackPropagation(n)
+b = BackPropagation(n, max_error=0.001)
 
 b.learn(training_set)
 
