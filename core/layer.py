@@ -10,7 +10,6 @@ class Layer:
         :type input_function: core.input_functions.input_function.InputFunction
         :type activation_function: core.activation_functions.activation_function.ActivationFunction
         """
-
         self.input_function = input_function
         self.activation_function = activation_function
         self.neurons = [Neuron(input_function, activation_function) for _ in range(neuron_count)]
@@ -28,9 +27,14 @@ class Layer:
         :type previous_layer: core.layer.Layer
         """
         self.__previous = previous_layer
+        self.connect_neurons(previous_layer)
 
+    def connect_neurons(self, other_layer):
+        """
+        :type other_layer: core.layer.Layer
+        """
         for neuron in self.neurons:
-            for another_neuron in previous_layer.neurons:
+            for another_neuron in other_layer.neurons:
                 neuron.connect_to(another_neuron)
 
     def compute_neurons(self):

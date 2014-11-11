@@ -29,11 +29,12 @@ class Neuron:
         for input_connection in self.input_connections.values():
             input_connection.randomize_weight()
 
-    def connect_to(self, another_neuron):
+    def connect_to(self, another_neuron, weight=0.0):
         """
         :type another_neuron: core.neuron.Neuron
+        :type weight: float
         """
-        connection = Connection(another_neuron, self)
+        connection = Connection(another_neuron, self, weight)
 
         self.input_connections[another_neuron] = connection
 

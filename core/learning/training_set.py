@@ -6,7 +6,7 @@ class TrainingSet:
         self.rows = []
         """:type : list[core.learning.training_set.TrainingSetRow] """
 
-    def append(self, input_pattern, ideal_output):
+    def append(self, input_pattern, ideal_output=None):
         """
         :type input_pattern: list[double]
         :type ideal_output: list[double]
