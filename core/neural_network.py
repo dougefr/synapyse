@@ -1,4 +1,5 @@
 from core.layer import Layer
+from impl.activation_functions.linear import Linear
 
 __author__ = 'Douglas Eric Fonseca Rodrigues'
 
@@ -8,7 +9,7 @@ class NeuralNetwork:
         self.layers = []
         """:type : list[core.layer.Layer]"""
 
-    def create_layer(self, neuron_count, input_function, activation_function):
+    def create_layer(self, neuron_count, input_function, activation_function=Linear()):
         """
         :type neuron_count: int
         :type input_function: core.input_functions.input_function.InputFunction

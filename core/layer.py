@@ -11,6 +11,8 @@ class Layer:
         :type activation_function: core.activation_functions.activation_function.ActivationFunction
         """
 
+        self.input_function = input_function
+        self.activation_function = activation_function
         self.neurons = [Neuron(input_function, activation_function) for _ in range(neuron_count)]
 
         self.__previous = None
