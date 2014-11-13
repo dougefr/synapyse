@@ -40,20 +40,30 @@ class NeuralNetwork:
     def output_neurons(self):
         return self.layers[-1].neurons
 
-    def compute(self, pattern):
-        """
-        :type pattern: list[float]
-        """
-
-        # sets the input layer with the input_pattern
-        for neuron, p in zip(self.layers[0].neurons, pattern):
-            neuron.input = p
-
+    def compute(self):
         for layer in self.layers:
             layer.compute_neurons()
 
-        return [neuron.output for neuron in self.layers[-1].neurons]
+    @property
+    def output(self):
+        return [neuron.output for neuron in self.output_neurons]
+
+    @property
+    def input(self):
+        return [neuron.input for neuron in self.layers[0].neurons]
+
+    @input.setter
+    def input(self, pattern):
+        """
+        :type pattern: list[float]
+        """
+        for neuron, p in zip(self.layers[0].neurons, pattern):
+            neuron.input = p
 
     def randomize_weights(self):
         for layer in self.layers:
             layer.randomize_neurons_weights()
+
+    @property
+    def weights(self):
+        return [layer.weights for layer in self.layers]

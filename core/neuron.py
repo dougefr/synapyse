@@ -12,7 +12,7 @@ class Neuron:
         self.input_function = input_function
         self.activation_function = activation_function
         self.output = 0.0
-        self.input = 0.0
+        self._input = 0.0
 
         self.input_connections = {}
         """:type : dict[core.neuron.Neuron, core.connection.Connection]"""
@@ -46,3 +46,18 @@ class Neuron:
 
     def remove_all_connections(self):
         self.input_connections.clear()
+
+    @property
+    def input(self):
+        return self._input
+
+    @input.setter
+    def input(self, n):
+        """
+        :type n: float
+        """
+        self._input = n
+
+    @property
+    def weights(self):
+        return [input_connection.weight for input_connection in self.input_connections.values()]

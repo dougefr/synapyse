@@ -29,7 +29,7 @@ b.learn(training_set)
 
 json_util.print_json(n)
 
-print(n.compute([0, 0]))
-print(n.compute([0, 1]))
-print(n.compute([1, 0]))
-print(n.compute([1, 1]))
+for training_set_row in training_set:
+    n.input = training_set_row.input_pattern
+    n.compute()
+    print(n.output)

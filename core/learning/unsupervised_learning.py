@@ -21,8 +21,9 @@ class UnsupervisedLearning(IterativeLearning):
         """
         :type training_set: core.learning.training_set.TrainingSet
         """
-        for training_row in training_set:
-            self.neural_network.compute(training_row.input_pattern)
+        for training_set_row in training_set:
+            self.neural_network.input = training_set_row.input_pattern
+            self.neural_network.compute()
             self.update_network_weights()
 
     @abstractmethod

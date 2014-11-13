@@ -12,10 +12,13 @@ class Layer:
         """
         self.input_function = input_function
         self.activation_function = activation_function
-        self.neurons = [Neuron(input_function, activation_function) for _ in range(neuron_count)]
+        self.neurons = [self.instantiate_neurons() for _ in range(neuron_count)]
 
         self.__previous = None
         """:type : core.layer.Layer"""
+
+    def instantiate_neurons(self):
+        return Neuron(self.input_function, self.activation_function)
 
     @property
     def previous(self):
@@ -43,3 +46,16 @@ class Layer:
     def randomize_neurons_weights(self):
         for neuron in self.neurons:
             neuron.randomize_weights()
+
+    @property
+    def input(self):
+        return [neuron.input for neuron in self.neurons]
+
+    @input.setter
+    def input(self, pattern):
+        for neuron, p in zip(self.neurons, pattern):
+            neuron.input = p
+
+    @property
+    def weights(self):
+        return [neuron.weights for neuron in self.neurons]

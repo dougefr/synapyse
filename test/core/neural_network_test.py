@@ -22,7 +22,9 @@ neural_network.create_layer(1, input_function, activation_function)
 
 neural_network.randomize_weights()
 
-print(neural_network.compute([1, 2]))
+neural_network.input = [1, 2]
+
+print(neural_network.compute())
 
 print(json.dumps(json.loads(jsonpickle.encode(neural_network)), indent=4, sort_keys=True))
 

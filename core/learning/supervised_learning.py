@@ -30,9 +30,13 @@ class SupervisedLearning(IterativeLearning):
 
         self.error_function.reset()
 
-        for training_row in training_set:
-            computed_output = self.neural_network.compute(training_row.input_pattern)
-            output_error = [ideal - actual for ideal, actual in zip(training_row.ideal_output, computed_output)]
+        for training_set_row in training_set:
+            self.neural_network.input = training_set_row.input_pattern
+            self.neural_network.compute()
+            computed_output = self.neural_network.output
+
+            # Calculate the output error
+            output_error = [ideal - actual for ideal, actual in zip(training_set_row.ideal_output, computed_output)]
             self.error_function.add_error(output_error)
             self.update_network_weights(output_error)
 

@@ -4,11 +4,11 @@ __author__ = 'Douglas Eric Fonseca Rodrigues'
 
 
 class UnsupervisedHebbianLearning(UnsupervisedLearning):
-    def __init__(self, neural_network):
+    def __init__(self, neural_network, learning_rate=0.1):
         """
         :type neural_network: core.neural_network.NeuralNetwork
         """
-        UnsupervisedLearning.__init__(self, neural_network, max_iterations=1)
+        UnsupervisedLearning.__init__(self, neural_network, learning_rate, 1)
 
     def update_network_weights(self):
         for neuron in self.neural_network.output_neurons:

@@ -8,7 +8,7 @@ class BinaryHebbianLearning(UnsupervisedHebbianLearning):
         """
         :type neural_network: core.neural_network.NeuralNetwork
         """
-        UnsupervisedHebbianLearning.__init__(self, neural_network)
+        UnsupervisedHebbianLearning.__init__(self, neural_network, 0.1)
 
     def calculate_new_weight(self, connection, input_value, output_value):
         """

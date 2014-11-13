@@ -23,12 +23,16 @@ learning = BinaryHebbianLearning(hopfield)
 
 learning.learn(training_set)
 
+json_util.print_json(hopfield)
+
 # add a incomplete H
 training_set.append([1, 0, 0,
                      1, 1, 1,
                      1, 0, 1])
 
-json_util.print_json(hopfield)
-
 for training_set_row in training_set:
-    print(training_set_row.input_pattern, hopfield.compute(training_set_row.input_pattern))
+    hopfield.input = training_set_row.input_pattern
+    print(hopfield.input)
+    hopfield.compute()
+    hopfield.compute()
+    print(hopfield.output)
