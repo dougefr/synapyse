@@ -11,7 +11,7 @@ class HopfieldLayer(Layer):
         """
         :type neuron_count: int
         """
-        Layer.__init__(self, neuron_count, WeightedSum(), Step())
+        Layer.__init__(self, neuron_count, WeightedSum(), Step(1, -1))
         self.connect_neurons(self)
 
     def instantiate_neurons(self):

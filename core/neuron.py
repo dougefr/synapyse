@@ -1,4 +1,7 @@
+from collections import OrderedDict
+
 from core.connection import Connection
+
 
 __author__ = 'Douglas Eric Fonseca Rodrigues'
 
@@ -14,8 +17,8 @@ class Neuron:
         self.output = 0.0
         self._input = 0.0
 
-        self.input_connections = {}
-        """:type : dict[core.neuron.Neuron, core.connection.Connection]"""
+        self.input_connections = OrderedDict()
+        """:type : OrderedDict[core.neuron.Neuron, core.connection.Connection]"""
 
     def compute_output(self):
         if len(self.input_connections) > 0:
