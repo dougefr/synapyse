@@ -167,5 +167,3 @@ for training_set_row in training_set:
     hopfield.compute()
     print("Result:")
     print_matrix(hopfield.output)
-
-print(hopfield.weights)

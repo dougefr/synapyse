@@ -1,7 +1,7 @@
 from core.learning.training_set import TrainingSet
 from impl.activation_functions.tanh import Tanh
 from impl.input_functions.weighted_sum import WeightedSum
-from impl.learning.back_propagation import BackPropagation
+from impl.learning.momentum_backpropagation import MomentumBackpropagation
 from impl.multi_layer_perceptron import MultiLayerPerceptron
 
 __author__ = 'Douglas Eric Fonseca Rodrigues'
@@ -43,11 +43,20 @@ n.create_layer(5, WeightedSum(), Tanh())
 
 n.randomize_weights()
 
-b = BackPropagation(n, learning_rate=0.2, max_iterations=5000)
+b = MomentumBackpropagation(n,
+                            learning_rate=0.4,
+                            momentum=0.5,
+                            max_error=0.01,
+                            max_iterations=5000)
+
+b.on_after_iteration = lambda obj: print(obj.total_network_error)
+
 b.learn(training_set)
 
 print("total_error=", b.total_network_error)
 
 for row in training_set:
-    actual = n.compute(row.input_pattern)
+    n.input = row.input_pattern
+    n.compute()
+    actual = n.output
     print(row.input_pattern, "actual=", actual, "ideal=", row.ideal_output)

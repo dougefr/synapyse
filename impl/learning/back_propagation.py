@@ -28,7 +28,7 @@ class BackPropagation(LeastMeanSquare):
 
             for neuron, error in zip(self.neural_network.output_neurons, output_error):
                 delta = error * neuron.activation_function.calculate_derivative(neuron.input)
-                LeastMeanSquare.update_neuron_weights(self, neuron, delta)
+                self.update_neuron_weights(neuron, delta)
 
             return zip(layer.neurons, output_error)
         else:
@@ -46,7 +46,7 @@ class BackPropagation(LeastMeanSquare):
                 neuron_error = delta_sum * neuron.activation_function.calculate_derivative(neuron.input)
                 neurons_errors.append(neuron_error)
 
-                LeastMeanSquare.update_neuron_weights(self, neuron, neuron_error)
+                self.update_neuron_weights(neuron, neuron_error)
 
             return zip(layer.neurons, neurons_errors)
 

@@ -25,9 +25,13 @@ n.randomize_weights()
 
 b = BackPropagation(n, max_error=0.001)
 
+b.on_total_error_calculate = lambda x: print(x)
+
 b.learn(training_set)
 
 json_util.print_json(n)
+
+print(n.weights)
 
 for training_set_row in training_set:
     n.input = training_set_row.input_pattern

@@ -8,4 +8,4 @@ class WeightedSum(InputFunction):
         """
         :type input_connections: list[core.connection.Connection]
         """
-        return sum([input_connection.origin.output * input_connection.weight for input_connection in input_connections])
+        return sum([input_connection.input * input_connection.weight for input_connection in input_connections])
