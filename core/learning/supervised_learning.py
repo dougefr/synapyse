@@ -10,13 +10,13 @@ __author__ = 'Douglas Eric Fonseca Rodrigues'
 class SupervisedLearning(IterativeLearning):
     __metaclass__ = ABCMeta
 
-    def __init__(self, neural_network, error_function=RMS(), learning_rate=0.1, max_error=0.01, max_iterations=None):
+    def __init__(self, neural_network, learning_rate, max_error, max_iterations=None, error_function=RMS()):
         """
         :type neural_network: core.neural_network.NeuralNetwork
-        :type error_function: core.learning.error_functions.error_function.ErrorFunction
         :type learning_rate: float
         :type max_error: float
         :type max_iterations: int
+        :type error_function: core.learning.error_functions.error_function.ErrorFunction
         """
         IterativeLearning.__init__(self, neural_network, learning_rate, max_iterations)
         self.error_function = error_function

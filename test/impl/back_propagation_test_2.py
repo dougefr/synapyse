@@ -66,7 +66,7 @@ n30.input_connections[b2].weight = 0.0
 
 # print(json.dumps(json.loads(jsonpickle.encode(n)), indent=4, sort_keys=True))
 
-b = BackPropagation(n, RMS(), 0.2, max_iterations=1)
+b = BackPropagation(n, error_function=RMS(), learning_rate=0.2, max_iterations=1, max_error=0.1)
 
 b.learn(training_set)
 

@@ -17,7 +17,9 @@ training_set.append([1, 1, 1,
                      0, 1, 0,
                      0, 1, 0])
 
-hopfield = Hopfield(9)
+hopfield = Hopfield(neuron_count=9,
+                    y_high=1,
+                    y_low=0)
 
 learning = BinaryHebbianLearning(hopfield)
 

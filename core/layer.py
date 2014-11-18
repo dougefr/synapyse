@@ -53,6 +53,9 @@ class Layer:
 
     @input.setter
     def input(self, pattern):
+        """
+        :type pattern: list[float]
+        """
         for neuron, p in zip(self.neurons, pattern):
             neuron.input = p
 

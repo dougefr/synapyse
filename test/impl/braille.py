@@ -43,7 +43,7 @@ n.create_layer(5, WeightedSum(), Tanh())
 
 n.randomize_weights()
 
-b = MomentumBackpropagation(n,
+b = MomentumBackpropagation(neural_network=n,
                             learning_rate=0.4,
                             momentum=0.5,
                             max_error=0.01,

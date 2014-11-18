@@ -23,7 +23,7 @@ n.create_layer(1, WeightedSum(), Tanh())
 
 n.randomize_weights()
 
-b = BackPropagation(n, max_error=0.001)
+b = BackPropagation(n, learning_rate=0.1, max_error=0.001)
 
 b.on_total_error_calculate = lambda x: print(x)
 

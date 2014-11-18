@@ -5,15 +5,15 @@ __author__ = 'Douglas Eric Fonseca Rodrigues'
 
 
 class LeastMeanSquare(SupervisedLearning):
-    def __init__(self, neural_network, error_function=RMS(), learning_rate=0.1, max_error=0.01, max_iterations=None):
+    def __init__(self, neural_network, learning_rate, max_error, max_iterations=None, error_function=RMS()):
         """
         :type neural_network: core.neural_network.NeuralNetwork
-        :type error_function: core.learning.error_functions.error_function.ErrorFunction
         :type learning_rate: float
         :type max_error: float
         :type max_iterations: int
+        :type error_function: core.learning.error_functions.error_function.ErrorFunction
         """
-        SupervisedLearning.__init__(self, neural_network, error_function, learning_rate, max_error, max_iterations)
+        SupervisedLearning.__init__(self, neural_network, learning_rate, max_error, max_iterations, error_function)
 
     def update_network_weights(self, output_error):
         for neuron, error in zip(self.neural_network.output_neurons, output_error):

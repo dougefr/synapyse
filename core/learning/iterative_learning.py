@@ -9,13 +9,12 @@ __author__ = 'Douglas Eric Fonseca Rodrigues'
 class IterativeLearning(LearningMethod):
     __metaclass__ = ABCMeta
 
-    def __init__(self, neural_network, learning_rate=0.1, max_iterations=None):
+    def __init__(self, neural_network, learning_rate, max_iterations=None):
         """
         :type neural_network: core.neural_network.NeuralNetwork
         :type learning_rate: float
         :type max_iterations: int
         """
-
         LearningMethod.__init__(self, neural_network)
 
         self.max_iterations = max_iterations

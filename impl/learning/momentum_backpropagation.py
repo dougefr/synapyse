@@ -5,17 +5,17 @@ __author__ = 'Douglas Eric Fonseca Rodrigues'
 
 
 class MomentumBackpropagation(BackPropagation):
-    def __init__(self, neural_network, error_function=RMS(), learning_rate=0.1, max_error=0.01, max_iterations=None,
-                 momentum=0.25):
+    def __init__(self, neural_network, momentum, learning_rate, max_error, max_iterations=None,
+                 error_function=RMS()):
         """
         :type neural_network: core.neural_network.NeuralNetwork
-        :type error_function: core.learning.error_functions.error_function.ErrorFunction
+        :type momentum: float
         :type learning_rate: float
         :type max_error: float
         :type max_iterations: int
-        :type momentum: float
+        :type error_function: core.learning.error_functions.error_function.ErrorFunction
         """
-        BackPropagation.__init__(self, neural_network, error_function, learning_rate, max_error, max_iterations)
+        BackPropagation.__init__(self, neural_network, learning_rate, max_error, max_iterations, error_function)
 
         self.momentum = momentum
 
