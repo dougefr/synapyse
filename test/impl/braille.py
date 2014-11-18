@@ -1,5 +1,5 @@
 from core.learning.training_set import TrainingSet
-from impl.activation_functions.tanh import Tanh
+from impl.activation_functions.sigmoid import Sigmoid
 from impl.input_functions.weighted_sum import WeightedSum
 from impl.learning.momentum_backpropagation import MomentumBackpropagation
 from impl.multi_layer_perceptron import MultiLayerPerceptron
@@ -38,16 +38,15 @@ training_set.append([1.0, 0.0, 0.0, 1.0, 1.0, 1.0], [1.0, 1.0, 0.0, 1.0, 0.0])  
 n = MultiLayerPerceptron()
 
 n.create_layer(6, WeightedSum())
-n.create_layer(6, WeightedSum(), Tanh())
-n.create_layer(5, WeightedSum(), Tanh())
+n.create_layer(7, WeightedSum(), Sigmoid())
+n.create_layer(5, WeightedSum(), Sigmoid())
 
 n.randomize_weights()
 
-b = MomentumBackpropagation(neural_network=n,
+b = MomentumBackpropagation(n,
                             learning_rate=0.4,
                             momentum=0.5,
-                            max_error=0.01,
-                            max_iterations=5000)
+                            max_error=0.05)
 
 b.on_after_iteration = lambda obj: print(obj.total_network_error)
 

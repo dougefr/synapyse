@@ -22,4 +22,6 @@ class Sigmoid(ActivationFunction):
         """
         :type x: float
         """
-        return x * (1.0 - x) + 0.1
+        output = self.calculate_output(x)
+
+        return output * (1.0 - output) + 0.1

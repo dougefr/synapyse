@@ -25,7 +25,6 @@ class BackPropagation(LeastMeanSquare):
 
         if i == len(self.neural_network.layers) - 1:
             # Output layer
-
             for neuron, error in zip(self.neural_network.output_neurons, output_error):
                 delta = error * neuron.activation_function.calculate_derivative(neuron.input)
                 self.update_neuron_weights(neuron, delta)
