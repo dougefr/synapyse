@@ -14,4 +14,4 @@ class Linear(ActivationFunction):
         """
         :type x: float
         """
-        return 1
+        return 1.0

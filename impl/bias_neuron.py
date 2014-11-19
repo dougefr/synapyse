@@ -12,5 +12,5 @@ class BiasNeuron(Neuron):
         Neuron.__init__(self, InputFunction(), activation_function)
 
     def compute_output(self):
-        self.output = 1
+        self.output = 1.0
         return self.output

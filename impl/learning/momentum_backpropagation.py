@@ -1,21 +1,18 @@
 from impl.learning.back_propagation import BackPropagation
-from impl.learning.error_functions.rms import RMS
 
 __author__ = 'Douglas Eric Fonseca Rodrigues'
 
 
 class MomentumBackpropagation(BackPropagation):
-    def __init__(self, neural_network, momentum, learning_rate, max_error, max_iterations=None,
-                 error_function=RMS()):
+    def __init__(self, neural_network, learning_rate, momentum, max_error, max_iterations=None):
         """
         :type neural_network: core.neural_network.NeuralNetwork
-        :type momentum: float
         :type learning_rate: float
+        :type momentum: float
         :type max_error: float
         :type max_iterations: int
-        :type error_function: core.learning.error_functions.error_function.ErrorFunction
         """
-        BackPropagation.__init__(self, neural_network, learning_rate, max_error, max_iterations, error_function)
+        BackPropagation.__init__(self, neural_network, learning_rate, max_error, max_iterations)
 
         self.momentum = momentum
 
@@ -28,12 +25,15 @@ class MomentumBackpropagation(BackPropagation):
         :type error: float
         """
         for connection in neuron.input_connections.values():
-            if connection.input != 0:
+
+            connection_input = connection.origin.output
+
+            if connection_input != 0:
 
                 if connection not in self.previous_weight_values:
                     self.previous_weight_values[connection] = 0
 
-                weight_change = self.learning_rate * error * connection.input + self.momentum * (
+                weight_change = self.learning_rate * error * connection_input + self.momentum * (
                     connection.weight - self.previous_weight_values[connection])
 
                 self.previous_weight_values[connection] = connection.weight

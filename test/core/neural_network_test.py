@@ -37,5 +37,5 @@ training_set.append([0, 1], [1])
 training_set.append([1, 0], [1])
 training_set.append([1, 1], [0])
 
-supervised_learning = SupervisedLearning(neural_network)
+supervised_learning = SupervisedLearning(neural_network, learning_rate=0.1, max_error=0.1)
 supervised_learning.learn(training_set)

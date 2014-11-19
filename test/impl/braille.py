@@ -8,45 +8,46 @@ __author__ = 'Douglas Eric Fonseca Rodrigues'
 
 training_set = TrainingSet()
 
-training_set.append([1.0, 0.0, 0.0, 0.0, 0.0, 0.0], [0.0, 0.0, 0.0, 0.0, 1.0])  # A
-training_set.append([1.0, 0.0, 1.0, 0.0, 0.0, 0.0], [0.0, 0.0, 0.0, 1.0, 0.0])  # B
-training_set.append([1.0, 1.0, 0.0, 0.0, 0.0, 0.0], [0.0, 0.0, 0.0, 1.0, 1.0])  # C
-training_set.append([1.0, 1.0, 0.0, 1.0, 0.0, 0.0], [0.0, 0.0, 1.0, 0.0, 0.0])  # D
-training_set.append([1.0, 0.0, 0.0, 1.0, 0.0, 0.0], [0.0, 0.0, 1.0, 0.0, 1.0])  # E
-training_set.append([1.0, 1.0, 1.0, 0.0, 0.0, 0.0], [0.0, 0.0, 1.0, 1.0, 0.0])  # F
-training_set.append([1.0, 1.0, 1.0, 1.0, 0.0, 0.0], [0.0, 0.0, 1.0, 1.0, 1.0])  # G
-training_set.append([1.0, 0.0, 1.0, 1.0, 0.0, 0.0], [0.0, 1.0, 0.0, 0.0, 0.0])  # H
-training_set.append([0.0, 1.0, 1.0, 0.0, 0.0, 0.0], [0.0, 1.0, 0.0, 0.0, 1.0])  # I
-training_set.append([0.0, 1.0, 1.0, 1.0, 0.0, 0.0], [0.0, 1.0, 0.0, 1.0, 0.0])  # J
-training_set.append([1.0, 0.0, 0.0, 0.0, 1.0, 0.0], [0.0, 1.0, 0.0, 1.0, 1.0])  # K
-training_set.append([1.0, 0.0, 1.0, 0.0, 1.0, 0.0], [0.0, 1.0, 1.0, 0.0, 0.0])  # L
-training_set.append([1.0, 1.0, 0.0, 0.0, 1.0, 0.0], [0.0, 1.0, 1.0, 0.0, 1.0])  # M
-training_set.append([1.0, 1.0, 0.0, 1.0, 1.0, 0.0], [0.0, 1.0, 1.0, 1.0, 0.0])  # N
-training_set.append([1.0, 0.0, 0.0, 1.0, 1.0, 0.0], [0.0, 1.0, 1.0, 1.0, 1.0])  # O
-training_set.append([1.0, 1.0, 1.0, 0.0, 1.0, 0.0], [1.0, 0.0, 0.0, 0.0, 0.0])  # P
-training_set.append([1.0, 1.0, 1.0, 1.0, 1.0, 1.0], [1.0, 0.0, 0.0, 0.0, 1.0])  # Q
-training_set.append([1.0, 0.0, 1.0, 1.0, 1.0, 0.0], [1.0, 0.0, 0.0, 1.0, 0.0])  # R
-training_set.append([0.0, 1.0, 1.0, 0.0, 1.0, 0.0], [1.0, 0.0, 0.0, 1.0, 1.0])  # S
-training_set.append([0.0, 1.0, 1.0, 1.0, 1.0, 0.0], [1.0, 0.0, 1.0, 0.0, 0.0])  # T
-training_set.append([1.0, 0.0, 0.0, 0.0, 1.0, 1.0], [1.0, 0.0, 1.0, 0.0, 1.0])  # U
-training_set.append([1.0, 0.0, 1.0, 0.0, 1.0, 1.0], [1.0, 0.0, 1.0, 1.0, 0.0])  # V
-training_set.append([0.0, 1.0, 1.0, 1.0, 1.0, 0.0], [1.0, 0.0, 1.0, 1.0, 1.0])  # W
-training_set.append([1.0, 1.0, 0.0, 0.0, 1.0, 1.0], [1.0, 1.0, 0.0, 0.0, 0.0])  # X
-training_set.append([1.0, 1.0, 0.0, 1.0, 1.0, 1.0], [1.0, 1.0, 0.0, 0.0, 1.0])  # Y
-training_set.append([1.0, 0.0, 0.0, 1.0, 1.0, 1.0], [1.0, 1.0, 0.0, 1.0, 0.0])  # Z
+training_set \
+    .append([1.0, 0.0, 0.0, 0.0, 0.0, 0.0], [0.0, 0.0, 0.0, 0.0, 1.0]) \
+    .append([1.0, 0.0, 1.0, 0.0, 0.0, 0.0], [0.0, 0.0, 0.0, 1.0, 0.0]) \
+    .append([1.0, 1.0, 0.0, 0.0, 0.0, 0.0], [0.0, 0.0, 0.0, 1.0, 1.0]) \
+    .append([1.0, 1.0, 0.0, 1.0, 0.0, 0.0], [0.0, 0.0, 1.0, 0.0, 0.0]) \
+    .append([1.0, 0.0, 0.0, 1.0, 0.0, 0.0], [0.0, 0.0, 1.0, 0.0, 1.0]) \
+    .append([1.0, 1.0, 1.0, 0.0, 0.0, 0.0], [0.0, 0.0, 1.0, 1.0, 0.0]) \
+    .append([1.0, 1.0, 1.0, 1.0, 0.0, 0.0], [0.0, 0.0, 1.0, 1.0, 1.0]) \
+    .append([1.0, 0.0, 1.0, 1.0, 0.0, 0.0], [0.0, 1.0, 0.0, 0.0, 0.0]) \
+    .append([0.0, 1.0, 1.0, 0.0, 0.0, 0.0], [0.0, 1.0, 0.0, 0.0, 1.0]) \
+    .append([0.0, 1.0, 1.0, 1.0, 0.0, 0.0], [0.0, 1.0, 0.0, 1.0, 0.0]) \
+    .append([1.0, 0.0, 0.0, 0.0, 1.0, 0.0], [0.0, 1.0, 0.0, 1.0, 1.0]) \
+    .append([1.0, 0.0, 1.0, 0.0, 1.0, 0.0], [0.0, 1.0, 1.0, 0.0, 0.0]) \
+    .append([1.0, 1.0, 0.0, 0.0, 1.0, 0.0], [0.0, 1.0, 1.0, 0.0, 1.0]) \
+    .append([1.0, 1.0, 0.0, 1.0, 1.0, 0.0], [0.0, 1.0, 1.0, 1.0, 0.0]) \
+    .append([1.0, 0.0, 0.0, 1.0, 1.0, 0.0], [0.0, 1.0, 1.0, 1.0, 1.0]) \
+    .append([1.0, 1.0, 1.0, 0.0, 1.0, 0.0], [1.0, 0.0, 0.0, 0.0, 0.0]) \
+    .append([1.0, 1.0, 1.0, 1.0, 1.0, 1.0], [1.0, 0.0, 0.0, 0.0, 1.0]) \
+    .append([1.0, 0.0, 1.0, 1.0, 1.0, 0.0], [1.0, 0.0, 0.0, 1.0, 0.0]) \
+    .append([0.0, 1.0, 1.0, 0.0, 1.0, 0.0], [1.0, 0.0, 0.0, 1.0, 1.0]) \
+    .append([0.0, 1.0, 1.0, 1.0, 1.0, 0.0], [1.0, 0.0, 1.0, 0.0, 0.0]) \
+    .append([1.0, 0.0, 0.0, 0.0, 1.0, 1.0], [1.0, 0.0, 1.0, 0.0, 1.0]) \
+    .append([1.0, 0.0, 1.0, 0.0, 1.0, 1.0], [1.0, 0.0, 1.0, 1.0, 0.0]) \
+    .append([0.0, 1.0, 1.0, 1.0, 1.0, 0.0], [1.0, 0.0, 1.0, 1.0, 1.0]) \
+    .append([1.0, 1.0, 0.0, 0.0, 1.0, 1.0], [1.0, 1.0, 0.0, 0.0, 0.0]) \
+    .append([1.0, 1.0, 0.0, 1.0, 1.0, 1.0], [1.0, 1.0, 0.0, 0.0, 1.0]) \
+    .append([1.0, 0.0, 0.0, 1.0, 1.0, 1.0], [1.0, 1.0, 0.0, 1.0, 0.0])
 
-n = MultiLayerPerceptron()
+neural_network = MultiLayerPerceptron()
 
-n.create_layer(6, WeightedSum())
-n.create_layer(7, WeightedSum(), Sigmoid())
-n.create_layer(5, WeightedSum(), Sigmoid())
+neural_network \
+    .create_layer(6, WeightedSum()) \
+    .create_layer(7, WeightedSum(), Sigmoid()) \
+    .create_layer(5, WeightedSum(), Sigmoid()) \
+    .randomize_weights()
 
-n.randomize_weights()
-
-b = MomentumBackpropagation(n,
+b = MomentumBackpropagation(neural_network=neural_network,
                             learning_rate=0.4,
                             momentum=0.5,
-                            max_error=0.05)
+                            max_error=0.02)
 
 b.on_after_iteration = lambda obj: print(obj.total_network_error)
 
@@ -55,7 +56,9 @@ b.learn(training_set)
 print("total_error=", b.total_network_error)
 
 for row in training_set:
-    n.input = row.input_pattern
-    n.compute()
-    actual = n.output
+    actual = neural_network \
+        .set_input(row.input_pattern) \
+        .compute() \
+        .output
+
     print(row.input_pattern, "actual=", actual, "ideal=", row.ideal_output)

@@ -10,16 +10,14 @@ __author__ = 'Douglas Eric Fonseca Rodrigues'
 class SupervisedLearning(IterativeLearning):
     __metaclass__ = ABCMeta
 
-    def __init__(self, neural_network, learning_rate, max_error, max_iterations=None, error_function=RMS()):
+    def __init__(self, neural_network, learning_rate, max_error, max_iterations=None):
         """
         :type neural_network: core.neural_network.NeuralNetwork
         :type learning_rate: float
         :type max_error: float
         :type max_iterations: int
-        :type error_function: core.learning.error_functions.error_function.ErrorFunction
         """
         IterativeLearning.__init__(self, neural_network, learning_rate, max_iterations)
-        self.error_function = error_function
         self.max_error = max_error
         self.total_network_error = None
 
@@ -27,20 +25,20 @@ class SupervisedLearning(IterativeLearning):
         """
         :type training_set: core.learning.training_set.TrainingSet
         """
-
-        self.error_function.reset()
+        error_function = RMS(len(training_set))
+        error_function.reset()
 
         for training_set_row in training_set:
-            self.neural_network.input = training_set_row.input_pattern
-            self.neural_network.compute()
-            computed_output = self.neural_network.output
+            computed_output = self.neural_network.set_input(training_set_row.input_pattern) \
+                .compute() \
+                .output
 
             # Calculate the output error
             output_error = [ideal - actual for ideal, actual in zip(training_set_row.ideal_output, computed_output)]
-            self.error_function.add_error(output_error)
+            error_function.add_error(output_error)
             self.update_network_weights(output_error)
 
-        self.total_network_error = self.error_function.total_error
+        self.total_network_error = error_function.total_error
 
     def has_reached_stop_condition(self):
         return IterativeLearning.has_reached_stop_condition(self) or (

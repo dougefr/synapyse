@@ -7,7 +7,6 @@ from impl.activation_functions.linear import Linear
 from impl.activation_functions.tanh import Tanh
 from impl.input_functions.weighted_sum import WeightedSum
 from impl.learning.back_propagation import BackPropagation
-from impl.learning.error_functions.rms import RMS
 from impl.multi_layer_perceptron import MultiLayerPerceptron
 
 
@@ -64,9 +63,9 @@ n30.input_connections[n20].weight = 0.4
 n30.input_connections[n21].weight = 0.3
 n30.input_connections[b2].weight = 0.0
 
-# print(json.dumps(json.loads(jsonpickle.encode(n)), indent=4, sort_keys=True))
+# print(json.dumps(json.loads(jsonpickle.encode(multi_layer_perceptron)), indent=4, sort_keys=True))
 
-b = BackPropagation(n, error_function=RMS(), learning_rate=0.2, max_iterations=1, max_error=0.1)
+b = BackPropagation(n, learning_rate=0.2, max_iterations=1, max_error=0.1)
 
 b.learn(training_set)
 

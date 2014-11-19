@@ -4,21 +4,20 @@ __author__ = 'Douglas Eric Fonseca Rodrigues'
 
 
 class RMS(ErrorFunction):
-    def __init__(self):
+    def __init__(self, n):
         self.global_error = 0.0
-        self.size = 0
+        self.n = n
 
     @property
     def total_error(self):
-        return self.global_error / self.size
+        return self.global_error / self.n
 
     def add_error(self, output_error):
         """
         :type output_error: list[float]
         """
-        self.global_error += sum([(error * error) * 0.5 for error in output_error])
-        self.size += len(output_error)
+        for error in output_error:
+            self.global_error += (error * error) * 0.5
 
     def reset(self):
         self.global_error = 0.0
-        self.size = 0.0

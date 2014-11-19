@@ -15,12 +15,11 @@ class Neuron:
         self.output = 0.0
         self._input = 0.0
 
-        self.input_connections = {}
-        """:type : dict[core.neuron.Neuron, core.connection.Connection]"""
+        self.input_connections = InputConnectionDict()
 
     def compute_output(self):
-        if len(self.input_connections) > 0:
-            self.input = self.input_function.calculate_output(list(self.input_connections.values()))
+        if not self.input_connections.is_empty():
+            self.input = self.input_function.calculate_output(self.input_connections.values())
 
         self.output = self.activation_function.calculate_output(self.input)
 
@@ -62,3 +61,63 @@ class Neuron:
     @property
     def weights(self):
         return [input_connection.weight for input_connection in self.input_connections.values()]
+
+
+class InputConnectionDict:
+    def __init__(self):
+        self.dict = {}
+        """:type : dict[core.neuron.Neuron, core.connection.Connection]"""
+
+        self.list = []
+        """:type : list[core.connection.Connection]"""
+
+        self.__empty = True
+
+    def __setitem__(self, key, value):
+        """
+        :type key: core.neuron.Neuron
+        :type value: core.connection.Connection
+        """
+        if key in self.dict:
+            self.__remove_item_list(key)
+
+        self.dict[key] = value
+        self.list.append(value)
+        self.__empty = False
+
+    def __getitem__(self, key):
+        """
+        :type key: core.neuron.Neuron
+        """
+        return self.dict[key]
+
+    def __delitem__(self, key):
+        """
+        :type key: core.neuron.Neuron
+        """
+        del self.dict[key]
+        self.__remove_item_list(key)
+
+    def values(self):
+        return self.list
+
+    def __remove_item_list(self, key):
+        """
+        :type key: core.neuron.Neuron
+        """
+        for item in self.list:
+            if item == self.dict[key]:
+                self.list.remove(item)
+
+                if not self.list:
+                    self.__empty = True
+
+                break
+
+    def is_empty(self):
+        return self.__empty
+
+    def clear(self):
+        self.dict.clear()
+        self.list.clear()
+        self.__empty = True

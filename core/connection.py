@@ -16,7 +16,3 @@ class Connection:
 
     def randomize_weight(self):
         self.weight = random_util.generate()
-
-    @property
-    def input(self):
-        return self.origin.output

@@ -15,7 +15,7 @@ class NeuralNetwork:
         :type input_function: core.input_functions.input_function.InputFunction
         :type activation_function: core.activation_functions.activation_function.ActivationFunction
         """
-        self.add_layer(Layer(neuron_count, input_function, activation_function))
+        return self.add_layer(Layer(neuron_count, input_function, activation_function))
 
     def add_layer(self, new_layer):
         """
@@ -26,6 +26,8 @@ class NeuralNetwork:
 
         self.layers.append(new_layer)
 
+        return self
+
     def remove_layer(self, index):
         del self.layers[index]
 
@@ -33,8 +35,12 @@ class NeuralNetwork:
             for i in range(1, len(self.layers)):
                 self.layers[i + 1].previous = self.layers[i]
 
+        return self
+
     def remove_all_layers(self):
         self.layers.clear()
+
+        return self
 
     @property
     def output_neurons(self):
@@ -43,6 +49,8 @@ class NeuralNetwork:
     def compute(self):
         for layer in self.layers:
             layer.compute_neurons()
+
+        return self
 
     @property
     def output(self):
@@ -60,9 +68,18 @@ class NeuralNetwork:
         for neuron, p in zip(self.layers[0].neurons, pattern):
             neuron.input = p
 
+    def set_input(self, pattern):
+        """
+        :type pattern: list[float]
+        """
+        self.input = pattern
+        return self
+
     def randomize_weights(self):
         for layer in self.layers:
             layer.randomize_neurons_weights()
+
+        return self
 
     @property
     def weights(self):

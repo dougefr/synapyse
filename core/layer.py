@@ -1,4 +1,7 @@
+import threading
+
 from core.neuron import Neuron
+
 
 __author__ = 'Douglas Eric Fonseca Rodrigues'
 
@@ -13,6 +16,7 @@ class Layer:
         self.input_function = input_function
         self.activation_function = activation_function
         self.neurons = [self.instantiate_neurons() for _ in range(neuron_count)]
+        """:type : list[core.neuron.Neuron]"""
 
         self.__previous = None
         """:type : core.layer.Layer"""
@@ -40,12 +44,30 @@ class Layer:
             for another_neuron in other_layer.neurons:
                 neuron.connect_to(another_neuron)
 
+        return self
+
     def compute_neurons(self):
-        return [neuron.compute_output() for neuron in self.neurons]
+        compute_function = lambda n: n.compute_output()
+        threads = []
+        """ :type : list[threading.Thread] """
+
+        for neuron in self.neurons:
+            thread = threading.Thread(target=compute_function, args=[neuron])
+            threads.append(thread)
+
+        for thread in threads:
+            thread.start()
+
+        for thread in threads:
+            thread.join()
+
+        return self
 
     def randomize_neurons_weights(self):
         for neuron in self.neurons:
             neuron.randomize_weights()
+
+        return self
 
     @property
     def input(self):

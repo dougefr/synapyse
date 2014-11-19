@@ -16,3 +16,5 @@ class MultiLayerPerceptron(NeuralNetwork):
             self.layers[-1].neurons.append(BiasNeuron(new_layer.activation_function))
 
         NeuralNetwork.add_layer(self, new_layer)
+
+        return self
