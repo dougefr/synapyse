@@ -9,3 +9,8 @@ class Linear(ActivationFunction):
 
     def calculate_derivative(self):
         return 1.0
+
+    def clone(self):
+        clone = Linear()
+        clone.x = self.x
+        return clone

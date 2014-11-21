@@ -7,11 +7,11 @@ __author__ = 'Douglas Eric Fonseca Rodrigues'
 class Neuron:
     def __init__(self, input_function, activation_function):
         """
-        :type input_function: type[core.input_functions.input_function.InputFunction]
-        :type activation_function: type[core.activation_functions.activation_function.ActivationFunction]
+        :type input_function: core.input_functions.input_function.InputFunction
+        :type activation_function: core.activation_functions.activation_function.ActivationFunction
         """
-        self.input_function = input_function()
-        self.activation_function = activation_function()
+        self.input_function = input_function
+        self.activation_function = activation_function.clone()
         self.output = 0.0
         self._input = 0.0
 

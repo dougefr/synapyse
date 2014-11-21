@@ -25,9 +25,9 @@ def main():
     multi_layer_perceptron = MultiLayerPerceptron()
 
     multi_layer_perceptron \
-        .create_layer(21, WeightedSum) \
-        .create_layer(14, WeightedSum, Sigmoid) \
-        .create_layer(4, WeightedSum, Sigmoid) \
+        .create_layer(21, WeightedSum()) \
+        .create_layer(14, WeightedSum(), Sigmoid()) \
+        .create_layer(4, WeightedSum(), Sigmoid()) \
         .randomize_weights()
 
     print(multi_layer_perceptron.weights)

@@ -5,9 +5,11 @@ __author__ = 'Douglas Eric Fonseca Rodrigues'
 
 
 class Hopfield(NeuralNetwork):
-    def __init__(self, neuron_count):
+    def __init__(self, neuron_count, y_high, y_low):
         """
         :type neuron_count: int
+        :type y_high: float
+        :type y_low: float
         """
         NeuralNetwork.__init__(self)
-        self.add_layer(HopfieldLayer(neuron_count))
+        self.add_layer(HopfieldLayer(neuron_count, y_high, y_low))

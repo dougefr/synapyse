@@ -39,9 +39,9 @@ training_set \
 neural_network = MultiLayerPerceptron()
 
 neural_network \
-    .create_layer(6, WeightedSum) \
-    .create_layer(7, WeightedSum, Sigmoid) \
-    .create_layer(5, WeightedSum, Sigmoid) \
+    .create_layer(6, WeightedSum()) \
+    .create_layer(7, WeightedSum(), Sigmoid()) \
+    .create_layer(5, WeightedSum(), Sigmoid()) \
     .randomize_weights()
 
 b = MomentumBackPropagation(neural_network=neural_network,

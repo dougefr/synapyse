@@ -18,9 +18,9 @@ training_set \
 n = MultiLayerPerceptron()
 
 n \
-    .create_layer(2, WeightedSum) \
-    .create_layer(3, WeightedSum, Tanh) \
-    .create_layer(1, WeightedSum, Tanh)
+    .create_layer(2, WeightedSum()) \
+    .create_layer(3, WeightedSum(), Tanh(2)) \
+    .create_layer(1, WeightedSum(), Tanh(2))
 
 n.randomize_weights()
 

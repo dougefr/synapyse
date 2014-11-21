@@ -6,8 +6,8 @@ __author__ = 'Douglas Eric Fonseca Rodrigues'
 class InputOutputNeuron(Neuron):
     def __init__(self, input_function, activation_function, bias=0.0):
         """
-        :type input_function: type[core.input_functions.input_function.InputFunction]
-        :type activation_function: type[core.activation_functions.activation_function.ActivationFunction]
+        :type input_function: core.input_functions.input_function.InputFunction
+        :type activation_function: core.activation_functions.activation_function.ActivationFunction
         :type bias: float
         """
         Neuron.__init__(self, input_function, activation_function)
@@ -26,10 +26,10 @@ class InputOutputNeuron(Neuron):
 
     def compute_output(self):
         if not self.external_input:
-            if len(self.input_connections) > 0:
+            if not self.input_connections.is_empty():
                 self.input = self.input_function.calculate_output(list(self.input_connections.values()))
 
-        self.output = self.activation_function.calculate_output(self.input + self.bias)
+        self.output = self.activation_function.set_x(self.input + self.bias).y
 
         if self.external_input:
             self.external_input = False

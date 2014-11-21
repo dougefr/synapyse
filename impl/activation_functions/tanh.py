@@ -7,7 +7,7 @@ __author__ = 'Douglas Eric Fonseca Rodrigues'
 
 
 class Tanh(ActivationFunction):
-    def __init__(self, slope=2.0):
+    def __init__(self, slope):
         """
         :type slope: float
         """
@@ -26,3 +26,8 @@ class Tanh(ActivationFunction):
     def calculate_derivative(self):
         x = self.y * self.y
         return 1.0 - x
+
+    def clone(self):
+        clone = Tanh(self.slope)
+        clone.x = self.x
+        return clone

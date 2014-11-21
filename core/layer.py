@@ -8,8 +8,8 @@ class Layer:
     def __init__(self, neuron_count, input_function, activation_function):
         """
         :type neuron_count: int
-        :type input_function: type[core.input_functions.input_function.InputFunction]
-        :type activation_function: type[core.activation_functions.activation_function.ActivationFunction]
+        :type input_function: core.input_functions.input_function.InputFunction
+        :type activation_function: core.activation_functions.activation_function.ActivationFunction
         """
         self.input_function = input_function
         self.activation_function = activation_function

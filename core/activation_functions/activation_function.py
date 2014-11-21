@@ -39,3 +39,7 @@ class ActivationFunction:
     @abstractmethod
     def calculate_derivative(self):
         pass
+
+    @abstractmethod
+    def clone(self):
+        pass
