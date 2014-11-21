@@ -25,17 +25,12 @@ n \
 n.randomize_weights()
 
 b = BackPropagation(n, learning_rate=0.1, max_error=0.01)
-# b = MomentumBackPropagation(n, learning_rate=0.1, momentum=0.25, max_error=0.01)
 
 b.on_after_iteration = lambda x: print(x.actual_iteration, ":", x.total_network_error)
 
 b.learn(training_set)
 
-# json_util.print_json(n)
-
-# print(n.weights)
-
 for training_set_row in training_set:
-    n.input = training_set_row.input_pattern
-    n.compute()
-    print(n.output)
+    print(n.set_input(training_set_row.input_pattern)
+          .compute()
+          .output)

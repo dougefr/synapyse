@@ -12,7 +12,7 @@ def import_from_file(file_name, input_count, output_count, separator):
     """
     training_set = TrainingSet()
 
-    file = open(file_name, "r")
+    file = open(file_name)
 
     for line in file:
         line_split = line.split(separator)
