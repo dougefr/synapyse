@@ -35,7 +35,8 @@ for training_set_row in training_set:
     print("Ideal output\t: ", training_set_row.ideal_output)
 
     output = multi_layer_perceptron \
-        .set_input(training_set_row.input_pattern).compute() \
+        .set_input(training_set_row.input_pattern) \
+        .compute() \
         .output
 
     print("Resulted output\t: ", output)
