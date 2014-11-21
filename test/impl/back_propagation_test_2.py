@@ -18,13 +18,10 @@ training_set.append([0.0, 1.0], [1.0])
 
 n = MultiLayerPerceptron()
 
-input_function = WeightedSum
-activation_function = Tanh
-
-n.create_layer(2, input_function, Linear)
-n.create_layer(2, input_function, activation_function)
-n.create_layer(2, input_function, activation_function)
-n.create_layer(1, input_function, activation_function)
+n.create_layer(2, WeightedSum, Linear) \
+    .create_layer(2, WeightedSum, Tanh) \
+    .create_layer(2, WeightedSum, Tanh) \
+    .create_layer(1, WeightedSum, Tanh)
 
 n00 = n.layers[0].neurons[0]
 n01 = n.layers[0].neurons[1]
