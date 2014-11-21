@@ -6,45 +6,38 @@ from util.training_set_util import import_from_file
 
 __author__ = "Douglas Eric Fonseca Rodrigues"
 
+# Creating a training_set based in a text file
+training_set = import_from_file("car_evaluation.txt", 21, 4, ",")
 
-def test(multi_layer_perceptron, training_set):
-    for training_set_row in training_set:
-        print("Input: ", training_set_row.input_pattern)
-        print("Ideal output\t: ", training_set_row.ideal_output)
+# Creating the network
+multi_layer_perceptron = MultiLayerPerceptron()
 
-        output = multi_layer_perceptron \
-            .set_input(training_set_row.input_pattern).compute() \
-            .output
+# Configuring the network
+multi_layer_perceptron \
+    .create_layer(21, WeightedSum()) \
+    .create_layer(14, WeightedSum(), Sigmoid()) \
+    .create_layer(4, WeightedSum(), Sigmoid()) \
+    .randomize_weights()
 
-        print("Resulted output\t: ", output)
+# Creating and configuring the learning method
+momentum_backpropagation = MomentumBackPropagation(neural_network=multi_layer_perceptron,
+                                                   learning_rate=0.3,
+                                                   momentum=0.6,
+                                                   max_error=0.01)
 
+# Configuring a log after each learning method iteration
+momentum_backpropagation.on_after_iteration = lambda b: print(b.actual_iteration, ":", b.total_network_error)
 
-def main():
-    training_set = import_from_file("car_evaluation.txt", 21, 4, ",")
+# Learning the training_set
+momentum_backpropagation.learn(training_set)
 
-    multi_layer_perceptron = MultiLayerPerceptron()
+# Printing results
+for training_set_row in training_set:
+    print("Input: ", training_set_row.input_pattern)
+    print("Ideal output\t: ", training_set_row.ideal_output)
 
-    multi_layer_perceptron \
-        .create_layer(21, WeightedSum()) \
-        .create_layer(14, WeightedSum(), Sigmoid()) \
-        .create_layer(4, WeightedSum(), Sigmoid()) \
-        .randomize_weights()
+    output = multi_layer_perceptron \
+        .set_input(training_set_row.input_pattern).compute() \
+        .output
 
-    print(multi_layer_perceptron.weights)
-
-    momentum_backpropagation = MomentumBackPropagation(neural_network=multi_layer_perceptron,
-                                                       learning_rate=0.3,
-                                                       momentum=0.6,
-                                                       max_error=0.01)
-
-    momentum_backpropagation.on_after_iteration = lambda b: print(b.actual_iteration, ":", b.total_network_error)
-
-    momentum_backpropagation.learn(training_set)
-
-    print(multi_layer_perceptron.weights)
-
-    # test(multi_layer_perceptron, training_set)
-
-
-main()
-# profile.run("main(); print")
+    print("Resulted output\t: ", output)
