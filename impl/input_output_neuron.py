@@ -6,8 +6,8 @@ __author__ = 'Douglas Eric Fonseca Rodrigues'
 class InputOutputNeuron(Neuron):
     def __init__(self, input_function, activation_function, bias=0.0):
         """
-        :type input_function: core.input_functions.input_function.InputFunction
-        :type activation_function: core.activation_functions.activation_function.ActivationFunction
+        :type input_function: type[core.input_functions.input_function.InputFunction]
+        :type activation_function: type[core.activation_functions.activation_function.ActivationFunction]
         :type bias: float
         """
         Neuron.__init__(self, input_function, activation_function)

@@ -1,5 +1,3 @@
-import threading
-
 from core.neuron import Neuron
 
 
@@ -10,8 +8,8 @@ class Layer:
     def __init__(self, neuron_count, input_function, activation_function):
         """
         :type neuron_count: int
-        :type input_function: core.input_functions.input_function.InputFunction
-        :type activation_function: core.activation_functions.activation_function.ActivationFunction
+        :type input_function: type[core.input_functions.input_function.InputFunction]
+        :type activation_function: type[core.activation_functions.activation_function.ActivationFunction]
         """
         self.input_function = input_function
         self.activation_function = activation_function
@@ -47,19 +45,8 @@ class Layer:
         return self
 
     def compute_neurons(self):
-        compute_function = lambda n: n.compute_output()
-        threads = []
-        """ :type : list[threading.Thread] """
-
         for neuron in self.neurons:
-            thread = threading.Thread(target=compute_function, args=[neuron])
-            threads.append(thread)
-
-        for thread in threads:
-            thread.start()
-
-        for thread in threads:
-            thread.join()
+            neuron.compute_output()
 
         return self
 

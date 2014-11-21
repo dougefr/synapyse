@@ -13,8 +13,8 @@ __author__ = 'Douglas Eric Fonseca Rodrigues'
 
 neural_network = NeuralNetwork()
 
-input_function = WeightedSum()
-activation_function = Linear()
+input_function = WeightedSum
+activation_function = Linear
 
 neural_network.create_layer(2, input_function, activation_function)
 neural_network.create_layer(3, input_function, activation_function)

@@ -1,6 +1,6 @@
 from impl.activation_functions.sigmoid import Sigmoid
 from impl.input_functions.weighted_sum import WeightedSum
-from impl.learning.back_propagation import BackPropagation
+from impl.learning.momentum_back_propagation import MomentumBackPropagation
 from impl.multi_layer_perceptron import MultiLayerPerceptron
 from util.training_set_util import import_from_file
 
@@ -25,14 +25,17 @@ def main():
     multi_layer_perceptron = MultiLayerPerceptron()
 
     multi_layer_perceptron \
-        .create_layer(21, WeightedSum()) \
-        .create_layer(14, WeightedSum(), Sigmoid()) \
-        .create_layer(4, WeightedSum(), Sigmoid()) \
+        .create_layer(21, WeightedSum) \
+        .create_layer(14, WeightedSum, Sigmoid) \
+        .create_layer(4, WeightedSum, Sigmoid) \
         .randomize_weights()
 
-    momentum_backpropagation = BackPropagation(neural_network=multi_layer_perceptron,
-                                               learning_rate=0.3,
-                                               max_error=0.01)
+    print(multi_layer_perceptron.weights)
+
+    momentum_backpropagation = MomentumBackPropagation(neural_network=multi_layer_perceptron,
+                                                       learning_rate=0.3,
+                                                       momentum=0.6,
+                                                       max_error=0.01)
 
     momentum_backpropagation.on_after_iteration = lambda b: print(b.actual_iteration, ":", b.total_network_error)
 
@@ -40,7 +43,7 @@ def main():
 
     print(multi_layer_perceptron.weights)
 
-    test(multi_layer_perceptron, training_set)
+    # test(multi_layer_perceptron, training_set)
 
 
 main()

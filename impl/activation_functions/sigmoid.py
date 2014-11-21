@@ -7,28 +7,16 @@ __author__ = 'Douglas Eric Fonseca Rodrigues'
 
 
 class Sigmoid(ActivationFunction):
-    calculated_outputs = {}
+    def __init__(self):
+        ActivationFunction.__init__(self)
 
-    def calculate_output(self, x):
-        """
-        :type x: float
-        """
-        if x > 100:
+    def calculate_output(self):
+        if self.x > 100:
             return 1.0
-        elif x < -100:
+        elif self.x < -100:
             return 0.0
-
-        if x in Sigmoid.calculated_outputs:
-            return Sigmoid.calculated_outputs[x]
         else:
-            output = 1.0 / (1.0 + exp(-1.0 * x))
-            Sigmoid.calculated_outputs[x] = output
-            return output
+            return 1.0 / (1.0 + exp(-1.0 * self.x))
 
-    def calculate_derivative(self, x):
-        """
-        :type x: float
-        """
-        output = self.calculate_output(x)
-
-        return output * (1.0 - output) + 0.1
+    def calculate_derivative(self):
+        return self.y * (1.0 - self.y) + 0.1

@@ -4,14 +4,8 @@ __author__ = 'Douglas Eric Fonseca Rodrigues'
 
 
 class Linear(ActivationFunction):
-    def calculate_output(self, x):
-        """
-        :type x: float
-        """
-        return x
+    def calculate_output(self):
+        return self.x
 
-    def calculate_derivative(self, x):
-        """
-        :type x: float
-        """
+    def calculate_derivative(self):
         return 1.0

@@ -3,7 +3,7 @@ from impl.learning.back_propagation import BackPropagation
 __author__ = 'Douglas Eric Fonseca Rodrigues'
 
 
-class MomentumBackpropagation(BackPropagation):
+class MomentumBackPropagation(BackPropagation):
     def __init__(self, neural_network, learning_rate, momentum, max_error, max_iterations=None):
         """
         :type neural_network: core.neural_network.NeuralNetwork

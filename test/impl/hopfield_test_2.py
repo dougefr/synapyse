@@ -85,7 +85,7 @@ training_set.append([
     1, 1, 1, 1, 1, 1, 1, 1, 1, 1
 ])
 
-hopfield = Hopfield(100, 1, -1)
+hopfield = Hopfield(100)
 
 learning = BinaryHebbianLearning(hopfield)
 

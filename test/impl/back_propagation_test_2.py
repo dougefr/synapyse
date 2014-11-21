@@ -18,10 +18,10 @@ training_set.append([0.0, 1.0], [1.0])
 
 n = MultiLayerPerceptron()
 
-input_function = WeightedSum()
-activation_function = Tanh()
+input_function = WeightedSum
+activation_function = Tanh
 
-n.create_layer(2, input_function, Linear())
+n.create_layer(2, input_function, Linear)
 n.create_layer(2, input_function, activation_function)
 n.create_layer(2, input_function, activation_function)
 n.create_layer(1, input_function, activation_function)

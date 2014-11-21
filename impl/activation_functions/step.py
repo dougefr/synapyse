@@ -9,20 +9,16 @@ class Step(ActivationFunction):
         :type y_high: float
         :type y_low: float
         """
+        ActivationFunction.__init__(self)
+
         self.y_high = y_high
         self.y_low = y_low
 
-    def calculate_output(self, x):
-        """
-        :type x: float
-        """
-        if x > 0:
+    def calculate_output(self):
+        if self.x > 0:
             return self.y_high
         else:
             return self.y_low
 
-    def calculate_derivative(self, x):
-        """
-        :type x: float
-        """
+    def calculate_derivative(self):
         return 1

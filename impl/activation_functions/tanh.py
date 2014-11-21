@@ -1,4 +1,4 @@
-from math import tanh, cosh
+from math import exp
 
 from core.activation_functions.activation_function import ActivationFunction
 
@@ -7,24 +7,22 @@ __author__ = 'Douglas Eric Fonseca Rodrigues'
 
 
 class Tanh(ActivationFunction):
-    def calculate_output(self, x):
+    def __init__(self, slope=2.0):
         """
-        :type x: float
+        :type slope: float
         """
-        if x > 100:
+        self.slope = slope
+        ActivationFunction.__init__(self)
+
+    def calculate_output(self):
+        if self.x > 100:
             return 1
-        elif x < -100:
+        elif self.x < -100:
             return -1
         else:
-            return tanh(x)
+            e_x = exp(self.slope * self.x)
+            return (e_x - 1.0) / (e_x + 1.0)
 
-    def calculate_derivative(self, x):
-        """
-        :type x: float
-        """
-        if x < -6:
-            return self.calculate_derivative(-6)
-        elif x > 6:
-            return self.calculate_derivative(6)
-        else:
-            return (1.0 / cosh(x)) ** 2
+    def calculate_derivative(self):
+        x = self.y * self.y
+        return 1.0 - x

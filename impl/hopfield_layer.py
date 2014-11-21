@@ -7,13 +7,11 @@ __author__ = 'Douglas Eric Fonseca Rodrigues'
 
 
 class HopfieldLayer(Layer):
-    def __init__(self, neuron_count, y_high, y_low):
+    def __init__(self, neuron_count):
         """
         :type neuron_count: int
-        :type y_high: float
-        :type y_low: float
         """
-        Layer.__init__(self, neuron_count, WeightedSum(), Step(y_high, y_low))
+        Layer.__init__(self, neuron_count, WeightedSum, Step)
         self.connect_neurons(self)
 
     def instantiate_neurons(self):
