@@ -1,19 +1,17 @@
+from core.learning.training_set import TrainingSet
 from impl.activation_functions.sigmoid import Sigmoid
 from impl.input_functions.weighted_sum import WeightedSum
 from impl.learning.momentum_back_propagation import MomentumBackPropagation
 from impl.multi_layer_perceptron import MultiLayerPerceptron
-from util.training_set_util import import_from_file
 
 __author__ = "Douglas Eric Fonseca Rodrigues"
 
 # Creating a training_set based in a text file
-training_set = import_from_file("car_evaluation.txt", 21, 4, ",")
+training_set = TrainingSet() \
+    .import_from_file("car_evaluation.txt", 21, 4, ",")
 
-# Creating the network
-multi_layer_perceptron = MultiLayerPerceptron()
-
-# Configuring the network
-multi_layer_perceptron \
+# Creating and configuring the network
+multi_layer_perceptron = MultiLayerPerceptron() \
     .create_layer(21, WeightedSum()) \
     .create_layer(14, WeightedSum(), Sigmoid()) \
     .create_layer(4, WeightedSum(), Sigmoid()) \
@@ -33,7 +31,7 @@ momentum_backpropagation.learn(training_set)
 
 # Printing results
 for training_set_row in training_set:
-    print("Input: ", training_set_row.input_pattern)
+    print("Input:", training_set_row.input_pattern)
     print("Ideal output\t: ", training_set_row.ideal_output)
 
     output = multi_layer_perceptron \
