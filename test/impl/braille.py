@@ -4,7 +4,7 @@ from impl.input_functions.weighted_sum import WeightedSum
 from impl.learning.momentum_back_propagation import MomentumBackPropagation
 from impl.multi_layer_perceptron import MultiLayerPerceptron
 
-__author__ = 'Douglas Eric Fonseca Rodrigues'
+__author__ = "Douglas Eric Fonseca Rodrigues"
 
 training_set = TrainingSet()
 

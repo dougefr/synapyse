@@ -1,6 +1,6 @@
 from impl.learning.unsupervised_hebbian_learning import UnsupervisedHebbianLearning
 
-__author__ = 'Douglas Eric Fonseca Rodrigues'
+__author__ = "Douglas Eric Fonseca Rodrigues"
 
 
 class BinaryHebbianLearning(UnsupervisedHebbianLearning):

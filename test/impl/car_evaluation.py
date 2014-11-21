@@ -4,7 +4,7 @@ from impl.learning.momentum_back_propagation import MomentumBackPropagation
 from impl.multi_layer_perceptron import MultiLayerPerceptron
 from util.training_set_util import import_from_file
 
-__author__ = 'Douglas Eric Fonseca Rodrigues'
+__author__ = "Douglas Eric Fonseca Rodrigues"
 
 
 def test(multi_layer_perceptron, training_set):
@@ -20,7 +20,7 @@ def test(multi_layer_perceptron, training_set):
 
 
 def main():
-    training_set = import_from_file("/home/douglas/projects/synapyse/test/impl/car_evaluation.txt", 21, 4, ",")
+    training_set = import_from_file("car_evaluation.txt", 21, 4, ",")
 
     multi_layer_perceptron = MultiLayerPerceptron()
 

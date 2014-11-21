@@ -1,6 +1,6 @@
 from abc import abstractmethod, ABCMeta
 
-__author__ = 'Douglas Eric Fonseca Rodrigues'
+__author__ = "Douglas Eric Fonseca Rodrigues"
 
 
 class LearningMethod:

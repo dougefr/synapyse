@@ -1,4 +1,4 @@
-__author__ = 'Douglas Eric Fonseca Rodrigues'
+__author__ = "Douglas Eric Fonseca Rodrigues"
 
 
 class TrainingSet:

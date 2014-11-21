@@ -1,6 +1,6 @@
 from abc import ABCMeta, abstractmethod
 
-__author__ = 'Douglas Eric Fonseca Rodrigues'
+__author__ = "Douglas Eric Fonseca Rodrigues"
 
 
 class ActivationFunction:

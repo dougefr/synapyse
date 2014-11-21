@@ -10,7 +10,7 @@ from impl.learning.back_propagation import BackPropagation
 from impl.multi_layer_perceptron import MultiLayerPerceptron
 
 
-__author__ = 'Douglas Eric Fonseca Rodrigues'
+__author__ = "Douglas Eric Fonseca Rodrigues"
 
 training_set = TrainingSet()
 

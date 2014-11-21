@@ -2,7 +2,7 @@ from core.learning.training_set import TrainingSet
 from impl.hopfield import Hopfield
 from impl.learning.binary_hebbian_learning import BinaryHebbianLearning
 
-__author__ = 'Douglas Eric Fonseca Rodrigues'
+__author__ = "Douglas Eric Fonseca Rodrigues"
 
 
 def print_matrix(v):

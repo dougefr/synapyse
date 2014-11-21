@@ -1,6 +1,6 @@
 from core.learning.training_set import TrainingSet, TrainingSetRow
 
-__author__ = 'Douglas Eric Fonseca Rodrigues'
+__author__ = "Douglas Eric Fonseca Rodrigues"
 
 
 def import_from_file(file_name, input_count, output_count, separator):

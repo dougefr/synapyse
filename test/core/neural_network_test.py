@@ -9,7 +9,7 @@ from impl.activation_functions.linear import Linear
 from impl.input_functions.weighted_sum import WeightedSum
 
 
-__author__ = 'Douglas Eric Fonseca Rodrigues'
+__author__ = "Douglas Eric Fonseca Rodrigues"
 
 neural_network = NeuralNetwork()
 

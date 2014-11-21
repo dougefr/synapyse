@@ -1,7 +1,7 @@
 from core.neural_network import NeuralNetwork
 from impl.bias_neuron import BiasNeuron
 
-__author__ = 'Douglas Eric Fonseca Rodrigues'
+__author__ = "Douglas Eric Fonseca Rodrigues"
 
 
 class MultiLayerPerceptron(NeuralNetwork):

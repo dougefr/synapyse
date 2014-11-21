@@ -1,6 +1,6 @@
 from impl.learning.least_mean_square import LeastMeanSquare
 
-__author__ = 'Douglas Eric Fonseca Rodrigues'
+__author__ = "Douglas Eric Fonseca Rodrigues"
 
 
 class BackPropagation(LeastMeanSquare):

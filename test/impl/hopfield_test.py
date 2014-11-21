@@ -3,7 +3,7 @@ from impl.hopfield import Hopfield
 from impl.learning.binary_hebbian_learning import BinaryHebbianLearning
 from util import json_util
 
-__author__ = 'Douglas Eric Fonseca Rodrigues'
+__author__ = "Douglas Eric Fonseca Rodrigues"
 
 training_set = TrainingSet()
 

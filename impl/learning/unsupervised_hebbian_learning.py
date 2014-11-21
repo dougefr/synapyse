@@ -1,6 +1,6 @@
 from core.learning.unsupervised_learning import UnsupervisedLearning
 
-__author__ = 'Douglas Eric Fonseca Rodrigues'
+__author__ = "Douglas Eric Fonseca Rodrigues"
 
 
 class UnsupervisedHebbianLearning(UnsupervisedLearning):
