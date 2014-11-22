@@ -34,12 +34,14 @@ class ActivationFunction:
 
     @abstractmethod
     def calculate_output(self):
-        pass
+        return 0.0
 
     @abstractmethod
     def calculate_derivative(self):
-        pass
+        return 0.0
 
     @abstractmethod
     def clone(self):
-        pass
+        clone = ActivationFunction()
+        clone.x = self.x
+        return clone
