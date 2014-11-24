@@ -13,6 +13,7 @@ from impl.multi_layer_perceptron import MultiLayerPerceptron
 __author__ = "Douglas Eric Fonseca Rodrigues"
 
 # Creating a training_set based in a text file
+#see https://github.com/synapyse/synapyse/blob/master/test/impl/car_evaluation.txt
 training_set = TrainingSet() \
     .import_from_file("car_evaluation.txt", 21, 4, ",")
 
