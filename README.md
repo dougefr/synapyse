@@ -13,20 +13,21 @@ from impl.multi_layer_perceptron import MultiLayerPerceptron
 __author__ = 'Douglas Eric Fonseca Rodrigues'
 
 # Creating a training_set based in a text file
-# see https://github.com/synapyse/synapyse/blob/master/test/impl/car_evaluation.txt
-training_set = TrainingSet() \
-    .import_from_file('car_evaluation.txt', 21, 4, ',')
+# https://raw.githubusercontent.com/synapyse/synapyse/master/test/impl/heart_disease.txt
+training_set = TrainingSet(13, 1) \
+    .import_from_file('heart_disease.txt', ',')\
+    .normalize()
 
 # Creating and configuring the network
 multi_layer_perceptron = MultiLayerPerceptron() \
-    .create_layer(21, WeightedSum()) \
-    .create_layer(14, WeightedSum(), Sigmoid()) \
-    .create_layer(4, WeightedSum(), Sigmoid()) \
+    .create_layer(13, WeightedSum()) \
+    .create_layer(8, WeightedSum(), Sigmoid()) \
+    .create_layer(1, WeightedSum(), Sigmoid()) \
     .randomize_weights()
 
 # Creating and configuring the learning method
 momentum_backpropagation = MomentumBackPropagation(neural_network=multi_layer_perceptron,
-                                                   learning_rate=0.3,
+                                                   learning_rate=0.2,
                                                    momentum=0.6,
                                                    max_error=0.01)
 
