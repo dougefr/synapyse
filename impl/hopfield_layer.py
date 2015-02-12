@@ -3,7 +3,7 @@ from impl.activation_functions.step import Step
 from impl.input_functions.weighted_sum import WeightedSum
 from impl.input_output_neuron import InputOutputNeuron
 
-__author__ = "Douglas Eric Fonseca Rodrigues"
+__author__ = 'Douglas Eric Fonseca Rodrigues'
 
 
 class HopfieldLayer(Layer):

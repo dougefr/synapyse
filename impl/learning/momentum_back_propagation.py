@@ -1,6 +1,6 @@
 from impl.learning.back_propagation import BackPropagation
 
-__author__ = "Douglas Eric Fonseca Rodrigues"
+__author__ = 'Douglas Eric Fonseca Rodrigues'
 
 
 class MomentumBackPropagation(BackPropagation):

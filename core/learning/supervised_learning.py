@@ -4,7 +4,7 @@ from core.learning.iterative_learning import IterativeLearning
 from impl.learning.error_functions.rms import RMS
 
 
-__author__ = "Douglas Eric Fonseca Rodrigues"
+__author__ = 'Douglas Eric Fonseca Rodrigues'
 
 
 class SupervisedLearning(IterativeLearning):

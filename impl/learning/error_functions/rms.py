@@ -1,6 +1,6 @@
 from core.learning.error_functions.error_function import ErrorFunction
 
-__author__ = "Douglas Eric Fonseca Rodrigues"
+__author__ = 'Douglas Eric Fonseca Rodrigues'
 
 
 class RMS(ErrorFunction):

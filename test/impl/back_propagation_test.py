@@ -5,9 +5,9 @@ from impl.learning.back_propagation import BackPropagation
 from impl.multi_layer_perceptron import MultiLayerPerceptron
 
 
-__author__ = "Douglas Eric Fonseca Rodrigues"
+__author__ = 'Douglas Eric Fonseca Rodrigues'
 
-training_set = TrainingSet()
+training_set = TrainingSet(2, 1)
 
 training_set \
     .append([0.0, 0.0], [0.0]) \
@@ -26,7 +26,7 @@ n.randomize_weights()
 
 b = BackPropagation(n, learning_rate=0.1, max_error=0.01)
 
-b.on_after_iteration = lambda x: print(x.actual_iteration, ":", x.total_network_error)
+b.on_after_iteration = lambda x: print(x.actual_iteration, ':', x.total_network_error)
 
 b.learn(training_set)
 

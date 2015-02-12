@@ -3,7 +3,7 @@ from abc import ABCMeta, abstractmethod
 from core.learning.iterative_learning import IterativeLearning
 
 
-__author__ = "Douglas Eric Fonseca Rodrigues"
+__author__ = 'Douglas Eric Fonseca Rodrigues'
 
 
 class UnsupervisedLearning(IterativeLearning):

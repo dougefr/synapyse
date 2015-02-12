@@ -9,7 +9,7 @@ from core.learning.training_set import TrainingSet
 from core.neural_network import NeuralNetwork
 
 
-__author__ = "Douglas Eric Fonseca Rodrigues"
+__author__ = 'Douglas Eric Fonseca Rodrigues'
 
 neural_network = NeuralNetwork() \
     .create_layer(2, InputFunction(), ActivationFunction()) \

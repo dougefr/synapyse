@@ -3,7 +3,7 @@ from abc import abstractmethod, ABCMeta
 from core.learning.learning_method import LearningMethod
 
 
-__author__ = "Douglas Eric Fonseca Rodrigues"
+__author__ = 'Douglas Eric Fonseca Rodrigues'
 
 
 class IterativeLearning(LearningMethod):

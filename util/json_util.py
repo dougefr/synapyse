@@ -3,7 +3,7 @@ import json
 import jsonpickle
 
 
-__author__ = "Douglas Eric Fonseca Rodrigues"
+__author__ = 'Douglas Eric Fonseca Rodrigues'
 
 
 def print_json(o):

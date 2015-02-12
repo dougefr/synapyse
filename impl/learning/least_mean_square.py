@@ -1,6 +1,6 @@
 from core.learning.supervised_learning import SupervisedLearning
 
-__author__ = "Douglas Eric Fonseca Rodrigues"
+__author__ = 'Douglas Eric Fonseca Rodrigues'
 
 
 class LeastMeanSquare(SupervisedLearning):

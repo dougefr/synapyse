@@ -1,8 +1,7 @@
 from core.layer import Layer
 from impl.activation_functions.linear import Linear
 
-__author__ = "Douglas Eric Fonseca Rodrigues"
-
+__author__ = 'Douglas Eric Fonseca Rodrigues'
 
 class NeuralNetwork:
     def __init__(self):

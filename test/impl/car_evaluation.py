@@ -4,11 +4,11 @@ from impl.input_functions.weighted_sum import WeightedSum
 from impl.learning.momentum_back_propagation import MomentumBackPropagation
 from impl.multi_layer_perceptron import MultiLayerPerceptron
 
-__author__ = "Douglas Eric Fonseca Rodrigues"
+__author__ = 'Douglas Eric Fonseca Rodrigues'
 
 # Creating a training_set based in a text file
-training_set = TrainingSet() \
-    .import_from_file("car_evaluation.txt", 21, 4, ",")
+training_set = TrainingSet(21, 4) \
+    .import_from_file('car_evaluation.txt', ',')
 
 # Creating and configuring the network
 multi_layer_perceptron = MultiLayerPerceptron() \
@@ -24,19 +24,19 @@ momentum_backpropagation = MomentumBackPropagation(neural_network=multi_layer_pe
                                                    max_error=0.01)
 
 # Configuring a log after each learning method iteration
-momentum_backpropagation.on_after_iteration = lambda b: print(b.actual_iteration, ":", b.total_network_error)
+momentum_backpropagation.on_after_iteration = lambda b: print(b.actual_iteration, ':', b.total_network_error)
 
 # Learning the training_set
 momentum_backpropagation.learn(training_set)
 
 # Printing results
 for training_set_row in training_set:
-    print("Input:", training_set_row.input_pattern)
-    print("Ideal output\t: ", training_set_row.ideal_output)
+    print('Input:', training_set_row.input_pattern)
+    print('Ideal output\t: ', training_set_row.ideal_output)
 
     output = multi_layer_perceptron \
         .set_input(training_set_row.input_pattern) \
         .compute() \
         .output
 
-    print("Resulted output\t: ", output)
+    print('Resulted output\t: ', output)

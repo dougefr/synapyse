@@ -1,6 +1,6 @@
 from core.activation_functions.activation_function import ActivationFunction
 
-__author__ = "Douglas Eric Fonseca Rodrigues"
+__author__ = 'Douglas Eric Fonseca Rodrigues'
 
 
 class Step(ActivationFunction):
