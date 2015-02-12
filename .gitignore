@@ -54,14 +54,6 @@ docs/_build/
 # PyBuilder
 target/
 
-**/.idea
-**/*.pyc
-**/__pycache__
-**/**/*.pyc
-**/**/__pycache__
-**/**/**/*.pyc
-**/**/**/__pycache__
-**/**/**/**/*.pyc
-**/**/**/**/__pycache__
-**/**/**/**/**/*.pyc
-**/**/**/**/**/__pycache__
+.idea
+*.pyc
+__pycache__
