@@ -1,5 +1,14 @@
-synapyse
-========
+# synapyse
+
+Just another Artificial Neural Network API.
+
+## How to install
+
+```
+pip install synapyse
+```
+
+## How to use
 
 An example of Synapyse API:
 
@@ -13,9 +22,9 @@ from impl.multi_layer_perceptron import MultiLayerPerceptron
 __author__ = 'Douglas Eric Fonseca Rodrigues'
 
 # Creating a training_set based in a text file
-# https://raw.githubusercontent.com/synapyse/synapyse/master/test/impl/heart_disease.txt
+# https://github.com/synapyse/synapyse/blob/master/samples/impl/car_evaluation.txt
 training_set = TrainingSet(13, 1) \
-    .import_from_file('heart_disease.txt', ',')\
+    .import_from_file('heart_disease.txt', ',') \
     .normalize()
 
 # Creating and configuring the network
@@ -49,3 +58,6 @@ for training_set_row in training_set:
 
     print('Resulted output\t: ', output)
 ```
+## License
+
+synapyse is a open source project, distributed under the MIT license.
