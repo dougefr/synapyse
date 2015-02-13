@@ -1,4 +1,4 @@
-from core.input_functions.input_function import InputFunction
+from base.input_functions.input_function import InputFunction
 
 __author__ = 'Douglas Eric Fonseca Rodrigues'
 

@@ -1,4 +1,4 @@
-from core.learning.error_functions.error_function import ErrorFunction
+from base.learning.error_functions.error_function import ErrorFunction
 
 __author__ = 'Douglas Eric Fonseca Rodrigues'
 

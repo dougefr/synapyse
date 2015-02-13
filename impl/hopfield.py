@@ -1,4 +1,4 @@
-from core.neural_network import NeuralNetwork
+from base.neural_network import NeuralNetwork
 from impl.hopfield_layer import HopfieldLayer
 
 __author__ = 'Douglas Eric Fonseca Rodrigues'

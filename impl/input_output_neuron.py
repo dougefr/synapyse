@@ -1,4 +1,4 @@
-from core.neuron import Neuron
+from base.neuron import Neuron
 
 __author__ = 'Douglas Eric Fonseca Rodrigues'
 

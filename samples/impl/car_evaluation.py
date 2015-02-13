@@ -1,4 +1,4 @@
-from core.learning.training_set import TrainingSet
+from base.learning.training_set import TrainingSet
 from impl.activation_functions.sigmoid import Sigmoid
 from impl.input_functions.weighted_sum import WeightedSum
 from impl.learning.momentum_back_propagation import MomentumBackPropagation
@@ -7,20 +7,19 @@ from impl.multi_layer_perceptron import MultiLayerPerceptron
 __author__ = 'Douglas Eric Fonseca Rodrigues'
 
 # Creating a training_set based in a text file
-training_set = TrainingSet(13, 1) \
-    .import_from_file('heart_disease.txt', ',')\
-    .normalize()
+training_set = TrainingSet(21, 4) \
+    .import_from_file('car_evaluation.txt', ',')
 
 # Creating and configuring the network
 multi_layer_perceptron = MultiLayerPerceptron() \
-    .create_layer(13, WeightedSum()) \
-    .create_layer(8, WeightedSum(), Sigmoid()) \
-    .create_layer(1, WeightedSum(), Sigmoid()) \
+    .create_layer(21, WeightedSum()) \
+    .create_layer(14, WeightedSum(), Sigmoid()) \
+    .create_layer(4, WeightedSum(), Sigmoid()) \
     .randomize_weights()
 
 # Creating and configuring the learning method
 momentum_backpropagation = MomentumBackPropagation(neural_network=multi_layer_perceptron,
-                                                   learning_rate=0.2,
+                                                   learning_rate=0.3,
                                                    momentum=0.6,
                                                    max_error=0.01)
 

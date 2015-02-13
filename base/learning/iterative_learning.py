@@ -1,6 +1,6 @@
 from abc import abstractmethod, ABCMeta
 
-from core.learning.learning_method import LearningMethod
+from base.learning.learning_method import LearningMethod
 
 
 __author__ = 'Douglas Eric Fonseca Rodrigues'

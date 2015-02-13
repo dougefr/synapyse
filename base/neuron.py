@@ -1,4 +1,4 @@
-from core.connection import Connection
+from base.connection import Connection
 
 
 __author__ = 'Douglas Eric Fonseca Rodrigues'

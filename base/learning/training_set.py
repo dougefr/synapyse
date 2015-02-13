@@ -102,7 +102,7 @@ class TrainingSet:
         for training_set_row in self:
 
             for i in range(len(training_set_row.input_pattern)):
-                if(x_max['input_pattern'][i] == x_min['input_pattern'][i]):
+                if (x_max['input_pattern'][i] == x_min['input_pattern'][i]):
                     training_set_row.input_pattern[i] = 0
                 else:
                     training_set_row.input_pattern[i] = \
@@ -110,7 +110,7 @@ class TrainingSet:
                         (x_max['input_pattern'][i] - x_min['input_pattern'][i])
 
             for i in range(len(training_set_row.ideal_output)):
-                if(x_max['ideal_output'][i] == x_min['ideal_output'][i]):
+                if (x_max['ideal_output'][i] == x_min['ideal_output'][i]):
                     training_set_row.ideal_output[i] = 0
                 else:
                     training_set_row.ideal_output[i] = \

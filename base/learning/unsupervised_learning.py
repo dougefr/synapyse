@@ -1,6 +1,6 @@
 from abc import ABCMeta, abstractmethod
 
-from core.learning.iterative_learning import IterativeLearning
+from base.learning.iterative_learning import IterativeLearning
 
 
 __author__ = 'Douglas Eric Fonseca Rodrigues'

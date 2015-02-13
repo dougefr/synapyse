@@ -1,4 +1,4 @@
-from core.learning.unsupervised_learning import UnsupervisedLearning
+from base.learning.unsupervised_learning import UnsupervisedLearning
 
 __author__ = 'Douglas Eric Fonseca Rodrigues'
 

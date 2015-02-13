@@ -2,7 +2,7 @@ import json
 
 import jsonpickle
 
-from core.learning.training_set import TrainingSet
+from base.learning.training_set import TrainingSet
 from impl.activation_functions.linear import Linear
 from impl.activation_functions.tanh import Tanh
 from impl.input_functions.weighted_sum import WeightedSum

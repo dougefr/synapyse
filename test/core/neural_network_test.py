@@ -2,11 +2,11 @@ import json
 
 import jsonpickle
 
-from core.activation_functions.activation_function import ActivationFunction
-from core.input_functions.input_function import InputFunction
-from core.learning.supervised_learning import SupervisedLearning
-from core.learning.training_set import TrainingSet
-from core.neural_network import NeuralNetwork
+from base.activation_functions.activation_function import ActivationFunction
+from base.input_functions.input_function import InputFunction
+from base.learning.supervised_learning import SupervisedLearning
+from base.learning.training_set import TrainingSet
+from base.neural_network import NeuralNetwork
 
 
 __author__ = 'Douglas Eric Fonseca Rodrigues'

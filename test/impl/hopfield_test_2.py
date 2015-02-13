@@ -1,4 +1,4 @@
-from core.learning.training_set import TrainingSet
+from base.learning.training_set import TrainingSet
 from impl.hopfield import Hopfield
 from impl.learning.binary_hebbian_learning import BinaryHebbianLearning
 

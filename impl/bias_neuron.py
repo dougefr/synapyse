@@ -1,5 +1,5 @@
-from core.input_functions.input_function import InputFunction
-from core.neuron import Neuron
+from base.input_functions.input_function import InputFunction
+from base.neuron import Neuron
 
 __author__ = 'Douglas Eric Fonseca Rodrigues'
 
