@@ -13,7 +13,9 @@ pip install synapyse
 An example of Synapyse API:
 
 ```python
-from core.learning.training_set import TrainingSet
+__author__ = 'Douglas'
+
+from synapyse.base.learning.training_set import TrainingSet
 from synapyse.impl.activation_functions.sigmoid import Sigmoid
 from synapyse.impl.input_functions.weighted_sum import WeightedSum
 from synapyse.impl.learning.momentum_back_propagation import MomentumBackPropagation
@@ -22,7 +24,7 @@ from synapyse.impl.multi_layer_perceptron import MultiLayerPerceptron
 __author__ = 'Douglas Eric Fonseca Rodrigues'
 
 # Creating a training_set based in a text file
-# https://github.com/synapyse/synapyse/blob/master/samples/impl/car_evaluation.txt
+# https://raw.githubusercontent.com/synapyse/synapyse/master/synapyse/samples/impl/car_evaluation.txt
 training_set = TrainingSet(13, 1) \
     .import_from_file('heart_disease.txt', ',') \
     .normalize()
