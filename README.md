@@ -14,10 +14,10 @@ An example of Synapyse API:
 
 ```python
 from core.learning.training_set import TrainingSet
-from impl.activation_functions.sigmoid import Sigmoid
-from impl.input_functions.weighted_sum import WeightedSum
-from impl.learning.momentum_back_propagation import MomentumBackPropagation
-from impl.multi_layer_perceptron import MultiLayerPerceptron
+from synapyse.impl.activation_functions.sigmoid import Sigmoid
+from synapyse.impl.input_functions.weighted_sum import WeightedSum
+from synapyse.impl.learning.momentum_back_propagation import MomentumBackPropagation
+from synapyse.impl.multi_layer_perceptron import MultiLayerPerceptron
 
 __author__ = 'Douglas Eric Fonseca Rodrigues'
 
