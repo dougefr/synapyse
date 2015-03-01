@@ -6,4 +6,4 @@ python:
 # command to install dependencies
 install: "pip install Flask"
 # command to run tests
-script: synapyse/samples/impl/car_evaluation.py
+script: python synapyse/samples/impl/car_evaluation.py
