@@ -4,6 +4,9 @@ python:
   - "3.3"
   - "3.4"
 # command to install dependencies
-install: "pip install Flask"
+install: 
+  - pip install Flask
+  - export PYTHONPATH=$PYTHONPATH:`pwd` 
+  
 # command to run tests
 script: python synapyse/samples/impl/car_evaluation.py
