@@ -11,7 +11,7 @@ pip install synapyse
 ## How to use
 
 An example of Synapyse API:
-
+  
 ```python
 from synapyse.base.learning.training_set import TrainingSet
 from synapyse.impl.activation_functions.sigmoid import Sigmoid
