@@ -1,5 +1,7 @@
 # synapyse
 
+![Build Status](https://travis-ci.org/synapyse/synapyse.svg?branch=master)
+
 Just another Artificial Neural Network API.
 
 ## How to install
