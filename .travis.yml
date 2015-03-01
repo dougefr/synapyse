@@ -9,4 +9,6 @@ install:
   - export PYTHONPATH=$PYTHONPATH:`pwd` 
   
 # command to run tests
-script: python synapyse/samples/impl/car_evaluation.py
+script: 
+  - cd synapyse/samples/impl/
+  - python car_evaluation.py
