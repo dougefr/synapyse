@@ -7,8 +7,8 @@ __author__ = 'Douglas Eric Fonseca Rodrigues'
 class Neuron:
     def __init__(self, input_function, activation_function):
         """
-        :type input_function: core.input_functions.input_function.InputFunction
-        :type activation_function: core.activation_functions.activation_function.ActivationFunction
+        :type input_function: synapyse.base.input_functions.input_function.InputFunction
+        :type activation_function: synapyse.base.activation_functions.activation_function.ActivationFunction
         """
         self.input_function = input_function
         self.activation_function = activation_function.clone()
@@ -31,7 +31,7 @@ class Neuron:
 
     def connect_to(self, another_neuron, weight=0.0):
         """
-        :type another_neuron: core.neuron.Neuron
+        :type another_neuron: synapyse.base.neuron.Neuron
         :type weight: float
         """
         connection = Connection(another_neuron, self, weight)
@@ -40,7 +40,7 @@ class Neuron:
 
     def disconnect_to(self, another_neuron):
         """
-        :type another_neuron: core.neuron.Neuron
+        :type another_neuron: synapyse.base.neuron.Neuron
         """
         del self.input_connections[another_neuron]
 
@@ -66,17 +66,17 @@ class Neuron:
 class InputConnectionDict:
     def __init__(self):
         self.dict = {}
-        """:type : dict[core.neuron.Neuron, core.connection.Connection]"""
+        """:type : dict[synapyse.base.neuron.Neuron, synapyse.base.connection.Connection]"""
 
         self.list = []
-        """:type : list[core.connection.Connection]"""
+        """:type : list[synapyse.base.connection.Connection]"""
 
         self.__empty = True
 
     def __setitem__(self, key, value):
         """
-        :type key: core.neuron.Neuron
-        :type value: core.connection.Connection
+        :type key: synapyse.base.neuron.Neuron
+        :type value: synapyse.base.connection.Connection
         """
         if key in self.dict:
             self.__remove_item_list(key)
@@ -87,13 +87,13 @@ class InputConnectionDict:
 
     def __getitem__(self, key):
         """
-        :type key: core.neuron.Neuron
+        :type key: synapyse.base.neuron.Neuron
         """
         return self.dict[key]
 
     def __delitem__(self, key):
         """
-        :type key: core.neuron.Neuron
+        :type key: synapyse.base.neuron.Neuron
         """
         del self.dict[key]
         self.__remove_item_list(key)
@@ -103,7 +103,7 @@ class InputConnectionDict:
 
     def __remove_item_list(self, key):
         """
-        :type key: core.neuron.Neuron
+        :type key: synapyse.base.neuron.Neuron
         """
         for item in self.list:
             if item == self.dict[key]:

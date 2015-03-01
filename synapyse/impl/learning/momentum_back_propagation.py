@@ -6,7 +6,7 @@ __author__ = 'Douglas Eric Fonseca Rodrigues'
 class MomentumBackPropagation(BackPropagation):
     def __init__(self, neural_network, learning_rate, momentum, max_error, max_iterations=None):
         """
-        :type neural_network: core.neural_network.NeuralNetwork
+        :type neural_network: synapyse.base.neural_network.NeuralNetwork
         :type learning_rate: float
         :type momentum: float
         :type max_error: float
@@ -17,11 +17,11 @@ class MomentumBackPropagation(BackPropagation):
         self.momentum = momentum
 
         self.previous_weight_values = {}
-        """:type : dict[core.connection.Connection, float]"""
+        """:type : dict[synapyse.base.connection.Connection, float]"""
 
     def update_neuron_weights(self, neuron, error):
         """
-        :type neuron: core.neuron.Neuron
+        :type neuron: synapyse.base.neuron.Neuron
         :type error: float
         """
         for connection in neuron.input_connections.values():

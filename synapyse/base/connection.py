@@ -6,8 +6,8 @@ __author__ = 'Douglas Eric Fonseca Rodrigues'
 class Connection:
     def __init__(self, origin, destination, weight=0.0):
         """
-        :type origin: core.neuron.Neuron
-        :type destination: core.neuron.Neuron
+        :type origin: synapyse.base.neuron.Neuron
+        :type destination: synapyse.base.neuron.Neuron
         :type weight: float
         """
         self.origin = origin

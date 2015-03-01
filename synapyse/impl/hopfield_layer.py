@@ -21,7 +21,7 @@ class HopfieldLayer(Layer):
 
     def connect_neurons(self, other_layer):
         """
-        :type other_layer: core.layer.Layer
+        :type other_layer: synapyse.base.layer.Layer
         """
         for neuron in self.neurons:
             for another_neuron in other_layer.neurons:

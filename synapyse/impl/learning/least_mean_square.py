@@ -7,7 +7,7 @@ __author__ = 'Douglas Eric Fonseca Rodrigues'
 class LeastMeanSquare(SupervisedLearning):
     def __init__(self, neural_network, learning_rate, max_error, max_iterations=None):
         """
-        :type neural_network: core.neural_network.NeuralNetwork
+        :type neural_network: synapyse.base.neural_network.NeuralNetwork
         :type learning_rate: float
         :type max_error: float
         :type max_iterations: int
@@ -20,7 +20,7 @@ class LeastMeanSquare(SupervisedLearning):
 
     def update_neuron_weights(self, neuron, error):
         """
-        :type neuron: core.neuron.Neuron
+        :type neuron: synapyse.base.neuron.Neuron
         :type error: float
         """
         logger = logging.getLogger('synapyse')

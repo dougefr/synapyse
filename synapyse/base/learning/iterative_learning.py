@@ -11,7 +11,7 @@ class IterativeLearning(LearningMethod):
 
     def __init__(self, neural_network, learning_rate, max_iterations=None):
         """
-        :type neural_network: core.neural_network.NeuralNetwork
+        :type neural_network: synapyse.base.neural_network.NeuralNetwork
         :type learning_rate: float
         :type max_iterations: int
         """
@@ -26,7 +26,7 @@ class IterativeLearning(LearningMethod):
 
     def learn(self, training_set):
         """
-        :type training_set: core.learning.training_set.TrainingSet
+        :type training_set: synapyse.base.learning.training_set.TrainingSet
         """
         while not self.has_reached_stop_condition():
             self.actual_iteration += 1
@@ -41,6 +41,6 @@ class IterativeLearning(LearningMethod):
     @abstractmethod
     def iteration(self, training_set):
         """
-        :type training_set: core.learning.training_set.TrainingSet
+        :type training_set: synapyse.base.learning.training_set.TrainingSet
         """
         pass

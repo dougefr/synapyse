@@ -11,7 +11,7 @@ class UnsupervisedLearning(IterativeLearning):
 
     def __init__(self, neural_network, learning_rate, max_iterations=None):
         """
-        :type neural_network: core.neural_network.NeuralNetwork
+        :type neural_network: synapyse.base.neural_network.NeuralNetwork
         :type learning_rate: float
         :type max_iterations: int
         """
@@ -19,7 +19,7 @@ class UnsupervisedLearning(IterativeLearning):
 
     def iteration(self, training_set):
         """
-        :type training_set: core.learning.training_set.TrainingSet
+        :type training_set: synapyse.base.learning.training_set.TrainingSet
         """
         for training_set_row in training_set:
             self.neural_network.set_input(training_set_row.input_pattern) \

@@ -9,7 +9,7 @@ class TrainingSet:
         """
 
         self.rows = []
-        """:type : list[core.learning.training_set.TrainingSetRow] """
+        """:type : list[synapyse.base.learning.training_set.TrainingSetRow] """
 
         self.input_count = input_count
         self.output_count = output_count

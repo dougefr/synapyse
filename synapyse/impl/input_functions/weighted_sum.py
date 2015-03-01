@@ -6,7 +6,7 @@ __author__ = 'Douglas Eric Fonseca Rodrigues'
 class WeightedSum(InputFunction):
     def calculate_output(self, input_connections):
         """
-        :type input_connections: list[core.connection.Connection]
+        :type input_connections: list[synapyse.base.connection.Connection]
         """
         s = 0.0
 

@@ -10,7 +10,7 @@ class MultiLayerPerceptron(NeuralNetwork):
 
     def add_layer(self, new_layer):
         """
-        :type new_layer: core.layer.Layer
+        :type new_layer: synapyse.base.layer.Layer
         """
         if len(self.layers) > 0:
             self.layers[-1].neurons.append(BiasNeuron(new_layer.activation_function))

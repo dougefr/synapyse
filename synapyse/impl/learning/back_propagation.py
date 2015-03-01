@@ -6,7 +6,7 @@ __author__ = 'Douglas Eric Fonseca Rodrigues'
 class BackPropagation(LeastMeanSquare):
     def __init__(self, neural_network, learning_rate, max_error, max_iterations=None):
         """
-        :type neural_network: core.neural_network.NeuralNetwork
+        :type neural_network: synapyse.base.neural_network.NeuralNetwork
         :type learning_rate: float
         :type max_error: float
         :type max_iterations: int

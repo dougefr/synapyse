@@ -6,13 +6,13 @@ __author__ = 'Douglas Eric Fonseca Rodrigues'
 class BinaryHebbianLearning(UnsupervisedHebbianLearning):
     def __init__(self, neural_network):
         """
-        :type neural_network: core.neural_network.NeuralNetwork
+        :type neural_network: synapyse.base.neural_network.NeuralNetwork
         """
         UnsupervisedHebbianLearning.__init__(self, neural_network, 1)
 
     def calculate_new_weight(self, connection, input_value, output_value):
         """
-        :type connection: core.connection.Connection
+        :type connection: synapyse.base.connection.Connection
         :type input_value: float
         :type output_value: float
         """

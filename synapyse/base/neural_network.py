@@ -7,19 +7,19 @@ __author__ = 'Douglas Eric Fonseca Rodrigues'
 class NeuralNetwork:
     def __init__(self):
         self.layers = []
-        """:type : list[core.layer.Layer]"""
+        """:type : list[synapyse.base.layer.Layer]"""
 
     def create_layer(self, neuron_count, input_function, activation_function=Linear()):
         """
         :type neuron_count: int
-        :type input_function: core.input_functions.input_function.InputFunction
-        :type activation_function: core.activation_functions.activation_function.ActivationFunction
+        :type input_function: synapyse.base.input_functions.input_function.InputFunction
+        :type activation_function: synapyse.base.activation_functions.activation_function.ActivationFunction
         """
         return self.add_layer(Layer(neuron_count, input_function, activation_function))
 
     def add_layer(self, new_layer):
         """
-        :type new_layer: core.layer.Layer
+        :type new_layer: synapyse.base.layer.Layer
         """
         if len(self.layers) > 0:
             new_layer.previous = self.layers[-1]

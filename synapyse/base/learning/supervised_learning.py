@@ -13,7 +13,7 @@ class SupervisedLearning(IterativeLearning):
 
     def __init__(self, neural_network, learning_rate, max_error, max_iterations=None):
         """
-        :type neural_network: core.neural_network.NeuralNetwork
+        :type neural_network: synapyse.base.neural_network.NeuralNetwork
         :type learning_rate: float
         :type max_error: float
         :type max_iterations: int
@@ -24,7 +24,7 @@ class SupervisedLearning(IterativeLearning):
 
     def iteration(self, training_set):
         """
-        :type training_set: core.learning.training_set.TrainingSet
+        :type training_set: synapyse.base.learning.training_set.TrainingSet
         """
         error_function = RMS(len(training_set))
         error_function.reset()
