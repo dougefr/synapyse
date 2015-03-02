@@ -1,6 +1,6 @@
 # synapyse
 
-![Build Status](https://travis-ci.org/synapyse/synapyse.svg?branch=master)
+[<img src="https://travis-ci.org/synapyse/synapyse.svg?branch=master" />](https://travis-ci.org/synapyse/synapyse)
 
 Just another Artificial Neural Network API.
 
