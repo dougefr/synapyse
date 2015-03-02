@@ -1,6 +1,7 @@
 from abc import abstractmethod, ABCMeta
 
 from synapyse.base.learning.learning_method import LearningMethod
+from synapyse.util.logger import Logger
 
 
 __author__ = 'Douglas Eric Fonseca Rodrigues'
@@ -34,6 +35,9 @@ class IterativeLearning(LearningMethod):
             self.on_before_iteration(self)
             self.iteration(training_set)
             self.on_after_iteration(self)
+
+            if Logger.is_debug_enabled():
+                Logger.debug('IterativeLearning::learn: actual_iteration=', self.actual_iteration)
 
     def has_reached_stop_condition(self):
         return self.max_iterations == self.actual_iteration

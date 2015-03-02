@@ -1,10 +1,11 @@
+import xlsxwriter
+
 from synapyse.impl.learning.back_propagation import BackPropagation
 from synapyse.base.learning.training_set import TrainingSet
 from synapyse.impl.activation_functions.sigmoid import Sigmoid
 from synapyse.impl.input_functions.weighted_sum import WeightedSum
 from synapyse.impl.multi_layer_perceptron import MultiLayerPerceptron
 
-import xlsxwriter
 
 __author__ = 'Douglas Eric Fonseca Rodrigues'
 

@@ -1,5 +1,5 @@
-import logging
 from synapyse.base.learning.supervised_learning import SupervisedLearning
+from synapyse.util.logger import Logger
 
 __author__ = 'Douglas Eric Fonseca Rodrigues'
 
@@ -23,14 +23,12 @@ class LeastMeanSquare(SupervisedLearning):
         :type neuron: synapyse.base.neuron.Neuron
         :type error: float
         """
-        logger = logging.getLogger('synapyse')
-
         for connection in neuron.input_connections.values():
 
-            if logger.isEnabledFor(logging.DEBUG):
-                logger.debug('LeastMeanSquare::update_neuron_weights: weight before =' + str(connection.weight))
+            if Logger.is_debug_enabled():
+                Logger.debug('LeastMeanSquare::update_neuron_weights: weight before=', connection.weight)
 
             connection.weight += connection.origin.output * error * self.learning_rate
 
-            if logger.isEnabledFor(logging.DEBUG):
-                logger.debug('LeastMeanSquare::update_neuron_weights: weight after =' + str(connection.weight))
+            if Logger.is_debug_enabled():
+                Logger.debug('LeastMeanSquare::update_neuron_weights: weight after=', connection.weight)
