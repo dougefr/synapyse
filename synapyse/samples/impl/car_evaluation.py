@@ -3,8 +3,12 @@ from synapyse.impl.activation_functions.sigmoid import Sigmoid
 from synapyse.impl.input_functions.weighted_sum import WeightedSum
 from synapyse.impl.learning.momentum_back_propagation import MomentumBackPropagation
 from synapyse.impl.multi_layer_perceptron import MultiLayerPerceptron
+from synapyse.util.logger import Logger
 
 __author__ = 'Douglas Eric Fonseca Rodrigues'
+
+# Enable log
+Logger.enable_logger(Logger.DEBUG)
 
 # Creating a training_set based in a text file
 training_set = TrainingSet(21, 4) \
