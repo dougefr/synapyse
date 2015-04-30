@@ -25,20 +25,21 @@ multi_layer_perceptron = MultiLayerPerceptron() \
 # Create a workbook and add a worksheet.
 workbook = xlsxwriter.Workbook('heart_disease.xlsx')
 
-for learning_rate in [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9]:
+for learning_rate in [0.01, 0.1, 0.3, 0.5, 0.7]:
 
     print('Running learning_rate =', learning_rate, '...')
 
     # Creating and configuring the learning method
     momentum_backpropagation = BackPropagation(neural_network=multi_layer_perceptron,
                                                learning_rate=learning_rate,
-                                               max_error=0.01,
+                                               max_error=0.05,
                                                max_iterations=5000)
 
     # Configuring a log after each learning method iteration
     errors = []
     momentum_backpropagation.on_after_iteration = lambda b: (
-        errors.append([b.actual_iteration, b.total_network_error])
+        errors.append([b.actual_iteration, b.total_network_error]),
+        print(b.actual_iteration, ':', b.total_network_error)
     )
 
     # Learning the training_set
@@ -56,7 +57,8 @@ for learning_rate in [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9]:
 
     # Create a new chart object.
     chart = workbook.add_chart({'type': 'line'})
-    chart.add_series({'values': ('=' + worksheet_name + '!$A$1:$A$' + str(len(errors)))})
+    chart.add_series({'values': ('=' + worksheet_name + '!$A$1:$A$' + str(len(errors))),
+                      'line': {'color': 'black'}})
     worksheet.insert_chart('C1', chart)
 
 workbook.close()

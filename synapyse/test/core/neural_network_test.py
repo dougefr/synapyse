@@ -1,7 +1,6 @@
 import json
 
 import jsonpickle
-
 from synapyse.base.activation_functions.activation_function import ActivationFunction
 from synapyse.base.input_functions.input_function import InputFunction
 from synapyse.base.learning.supervised_learning import SupervisedLearning

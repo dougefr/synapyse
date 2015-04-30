@@ -1,7 +1,6 @@
 import json
 
 import jsonpickle
-
 from synapyse.base.learning.training_set import TrainingSet
 from synapyse.impl.activation_functions.linear import Linear
 from synapyse.impl.activation_functions.tanh import Tanh

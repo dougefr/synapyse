@@ -1,3 +1,5 @@
+from random import shuffle
+
 __author__ = 'Douglas Eric Fonseca Rodrigues'
 
 
@@ -41,7 +43,42 @@ class TrainingSet:
     def __len__(self):
         return len(self.rows)
 
-    def import_from_file(self, file_name, separator):
+    def save_to_file(self, file_name, separator=','):
+        """
+        :type file_name: str
+        :type separator: str
+        """
+        file = open(file_name, 'w')
+
+        first_row = True
+
+        for row in self.rows:
+
+            if first_row:
+                first_row = False
+            else:
+                file.write('\n')
+
+            first_column = True
+
+            for v in row.input_pattern:
+                if first_column:
+                    file.write(str(v))
+                    first_column = False
+                else:
+                    file.write(separator + str(v))
+            for v in row.ideal_output:
+                if first_column:
+                    file.write(str(v))
+                    first_column = False
+                else:
+                    file.write(separator + str(v))
+
+        file.close()
+
+        return self
+
+    def import_from_file(self, file_name, separator=','):
         """
         :type file_name: str
         :type separator: str
@@ -65,6 +102,32 @@ class TrainingSet:
 
         return self
 
+    def shuffle(self):
+        shuffle(self.rows)
+        return self
+
+    def slice(self, percentage):
+        """
+        Slice the training set in two new training sets.
+        :type percentage: float
+        """
+        if percentage >= 0 or percentage <= 100:
+            slice_index = round(len(self) / 100 * percentage)
+
+            training_set_head = TrainingSet(self.input_count, self.output_count)
+            training_set_tail = TrainingSet(self.input_count, self.output_count)
+
+            for row in self[:slice_index]:
+                training_set_head.append(row.input_pattern, row.ideal_output)
+
+            for row in self[slice_index:]:
+                training_set_tail.append(row.input_pattern, row.ideal_output)
+
+            return training_set_head, training_set_tail
+
+        else:
+            raise ValueError('percentage must be between 0 and 100')
+
     def normalize(self):
         """
         Sets the values of training set to values in the range from 0 to 1 using the follow formula:
@@ -76,9 +139,6 @@ class TrainingSet:
         Xn – normalized value
         Xmin – minimum value of X
         Xmax – maximum value of X
-
-        Reference: http://neuroph.sourceforge.net/tutorials/MusicClassification/
-        music_classification_by_genre_using_neural_networks.html
         """
 
         # Find the Xmin and Xmax
