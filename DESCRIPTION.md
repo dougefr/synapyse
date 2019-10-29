@@ -1,4 +1,4 @@
 synapyse
 ========
 
-Just another Artificial Neural Network API
+This project is just another Artificial Neural Network API.
